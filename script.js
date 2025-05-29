@@ -168,17 +168,26 @@ function submitEnquiry(event) {
   formData.append("product", product);
   formData.append("message", message);
 
+  // Show loading message
+  const loader = document.getElementById("enquiryLoader");
+  loader.style.display = "block";
+
   fetch("send.php", {
     method: "POST",
     body: formData
   })
-  .then(res => res.text())
-  .then(data => {
-    alert("Enquiry sent successfully!");
-    closeModal();
-  })
-  .catch(err => {
-    alert("Something went wrong. Try again.");
-    console.error(err);
-  });
+    .then(res => res.text())
+    .then(data => {
+      alert("Enquiry sent successfully!");
+      closeModal();
+    })
+    .catch(err => {
+      alert("Something went wrong. Please try again.");
+      console.error(err);
+    })
+    .finally(() => {
+      // ✅ Always hide the loader, even if there's an error
+      loader.style.display = "none";
+    });
 }
+
