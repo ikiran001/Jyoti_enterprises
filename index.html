@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jyoti Enterprises</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<header>
+  <h1>Jyoti Enterprises</h1>
+  <h2>Shaping Tomorrow in Acrylic.</h2>
+  <div class="marquee">
+    <p>Contact name: Prakash Jadhav&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      Contact number: 📞 9820730645  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Address: 📍 subhashnagar ghatkopar west mumbai 400084 </p>
+  </div>
+<div class="nav-container">
+  <a href="contact.php" class="nav-link">Contact Us</a>
+  <a href="about.php" class="nav-link">About Us</a>
+  <a href="admin.php" class="nav-link">For Admin</a>
+</div>
+
+
+
+
+
+
+<div class="search-container" style="margin:20px;">
+  <input type="text" id="productSearch" placeholder="Search products..." onkeyup="filterProducts()" style="padding:8px; width:300px;">
+</div>
+
+
+</header>
+<div class="product-grid">
+<!--product 1-->
+<div class="product-card" onclick="showDetails('Customized Acrylic Box','High-quality acrylic complaint box with smooth edges and customizable printing.')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/mirror/image1.jpg', 'images/mirror/image2.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/mirror/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/mirror/image1.jpg', 'images/mirror/image2.jpg'], 0)">
+    <img class="carousel-image" src="images/mirror/image2.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+  <h2> Acrylic Mirror</h2>
+  <h3>₹281</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Customized Acrylic Box')">Enquire</button>
+  <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
+  
+</div>
+
+<!--product 2-->
+<div class="product-card" onclick="showDetails('Customized Acrylic Box','High-quality acrylic complaint box with smooth edges and customizable printing.')">
+
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/name_plate/image1.jpg', 'images/name_plate/image2.jpg', 'images/name_plate/image3.jpg', 'images/name_plate/image4.jpg', 'images/name_plate/image5.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/name_plate/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/name_plate/image1.jpg', 'images/name_plate/image2.jpg', 'images/name_plate/image3.jpg', 'images/name_plate/image4.jpg', 'images/name_plate/image5.jpg'], 0)">
+
+    <img class="carousel-image" src="images/name_plate/image2.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/name_plate/image3.jpg" style="width:200px; height:200px; display:none;">
+     <img class="carousel-image" src="images/name_plate/image4.jpg" style="width:200px; height:200px; display:none;">
+      <img class="carousel-image" src="images/name_plate/image5.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+  <h2> Acrylic Name Plate</h2>
+  <h3>₹281</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Customized Acrylic Box')">Enquire</button>
+  <button onclick="event.stopPropagation(); openQuote()">Get Quote</button>
+
+
+</div>
+
+
+<!--product 3-->
+<div class="product-card" onclick="showDetails('Customized Acrylic Box','High-quality acrylic complaint box with smooth edges and customizable printing.')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Photo_frames/image1.jpg', 'images/Photo_frames/image2.jpg', 'images/Photo_frames/image3.jpg', 'images/Photo_frames/image4.jpg', 'images/Photo_frames/image5.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/Photo_frames/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Photo_frames/image1.jpg', 'images/Photo_frames/image2.jpg', 'images/Photo_frames/image3.jpg', 'images/Photo_frames/image4.jpg', 'images/Photo_frames/image5.jpg'], 0)">
+    <img class="carousel-image" src="images/Photo_frames/image2.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/Photo_frames/image3.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/Photo_frames/image4.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/Photo_frames/image5.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+
+  <h2> Acrylic Photo Frame</h2>
+  <h3>₹281</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Customized Acrylic Box')">Enquire</button>
+  <button onclick="event.stopPropagation(); openQuote()">Get Quote</button>
+</div>
+
+
+
+  <!-- Add more products as needed -->
+</div>
+<p id="noResultsMessage" style="display:none; text-align:center; font-style: italic; color: #888; margin-top: 20px;">
+  No products matched your search. Please try different keywords.
+</p>
+
+
+<!-- Product Detail Modal -->
+<div id="productModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<!-- Enquiry Form Modal -->
+<div id="enquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="enquiryProductHeading">Product Enquiry</h2>
+    <form onsubmit="submitEnquiry(event)">
+      <input type="text" id="enquiryName" placeholder="Your Name" required><br><br>
+      <input type="email" id="enquiryEmail" placeholder="Your Email" required><br><br>
+      <input type="tel" id="enquiryPhone" placeholder="Your Phone Number" required><br><br>
+      <textarea id="enquiryMessage" placeholder="Your message..." required rows="4"></textarea><br><br>
+      <input type="hidden" id="enquiryProduct">
+      <button type="submit">Send Enquiry</button>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Paper Weight Estimate Modal -->
+<div id="paperWeightModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Product Estimate</h2>
+    <form onsubmit="calculatePaperWeight(event)">
+      <input type="number" id="pwLength" placeholder="Length (in inches)" required>
+      <input type="number" id="pwBreadth" placeholder="Breadth (in inches)" required>
+      <input type="number" id="pwThickness" placeholder="Thickness (in mm)" required>
+      <button type="submit">Calculate</button>
+    </form>
+    <p id="paperWeightResult" style="font-weight: bold; margin-top: 10px;"></p>
+  </div>
+</div>
+
+
+
+<!-- Quote Form Modal -->
+<div id="quoteModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Product Estimate</h2>
+    <form onsubmit="calculateQuote(event)">
+  <input type="number" id="length" placeholder="Length (in inches)" required>
+  <input type="number" id="breadth" placeholder="Breadth (in inches)" required>
+  <input type="number" id="height" placeholder="Height (in inches)" required>
+  <input type="number" id="thickness" placeholder="Thickness (in mm)" required>
+  <button type="submit">Calculate</button>
+</form>
+
+    <p id="quoteResult" style="font-weight: bold; margin-top: 10px;"></p>
+  </div>
+</div>
+<!-- Fullscreen Image Viewer Modal -->
+<div id="imageViewer" class="modal" style="display: none;">
+  <div class="modal-content" style="text-align: center; position: relative;">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <button class="arrow left-arrow" onclick="changeViewerImage(-1)">&#10094;</button>
+    <img id="viewerImage" src="" style="max-width: 90%; max-height: 400px; border-radius: 10px;" />
+    <button class="arrow right-arrow" onclick="changeViewerImage(1)">&#10095;</button>
+  </div>
+</div>
+
+
+<a href="https://wa.me/917032174014?text=Hi%20Jyoti%20Enterprises%2C%20I%20have%20an%20enquiry."
+   class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+       alt="WhatsApp Chat"
+       style="width: 55px; height: 55px;">
+</a>
+<div class="enquiry-float" onclick="document.getElementById('enquiryModal').style.display='block';">
+  <span>📩 Need Help?</span>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
