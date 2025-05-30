@@ -10,68 +10,63 @@
 <body>
 
 <header>
-  <h1>Jyoti Enterprises</h1>
-  <h2>Shaping Tomorrow in Acrylic...</h2>
-  <div class="marquee">
-    <p>Contact name: Prakash Jadhav&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      Contact number: 📞 9820730645  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Address: 📍 subhashnagar ghatkopar west mumbai 400084 </p>
-  </div>
+  <div class="hero-background" id="dynamicBg">
+  <h1 class="glow-text">Jyoti Enterprises</h1>
+<h2 class="glow-subtext">Shaping Tomorrow in Acrylic...</h2>
+
+ <div class="marquee">
+  <p>Contact name: Prakash Jadhav &nbsp;&nbsp;&nbsp; 📞 9820730645 &nbsp;&nbsp;&nbsp; 📍 Subhashnagar, Ghatkopar West, Mumbai 400084</p>
+</div>
+
 <div class="nav-container">
-  <a href="contact.php" class="nav-link">Contact Us</a>
-  <a href="about.php" class="nav-link">About Us</a>
-  <a href="admin.php" class="nav-link">For Admin</a>
+  <a href="contact.php" class="nav-link glow-link">Contact Us</a>
+  <a href="about.php" class="nav-link glow-link">About Us</a>
+  <a href="admin.php" class="nav-link glow-link">For Admin</a>
 </div>
 
 
-
-
-
-
-<div class="search-container" style="margin:20px;">
-  <input type="text" id="productSearch" placeholder="Search products..." onkeyup="filterProducts()" style="padding:8px; width:300px;">
+ <div class="search-container">
+  <input type="text" id="productSearch" placeholder="🔍 Search products..." onkeyup="filterProducts()">
 </div>
+
 
 
 </header>
 <div class="product-grid">
 <!--product 1-->
-<div class="product-card" onclick="showDetails('Customized Acrylic Box','High-quality acrylic complaint box with smooth edges and customizable printing.')">
+<div class="product-card" onclick="showDetails('Acrylic Mirror','Acrylic mirrors are lightweight, shatter-resistant alternatives to glass, perfect for both decorative and functional use. They can be customized to any size and shape to suit your space. Prices vary based on the dimensions and thickness of the mirror. Size: 12 Inch x 8 Inch ,thickness-3mm (customizable)')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/mirror/image1.jpg', 'images/mirror/image2.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/mirror/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/mirror/image1.jpg', 'images/mirror/image2.jpg'], 0)">
     <img class="carousel-image" src="images/mirror/image2.jpg" style="width:200px; height:200px; display:none;">
     <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
   </div>
-  <h2> Acrylic Mirror</h2>
-  <h3>₹281</h3>
-  <button onclick="event.stopPropagation(); openEnquiry('Customized Acrylic Box')">Enquire</button>
+  <h4 class="clickable-title">Acrylic mirrors are lightweight, shatter-resistant alternatives to glass... <span class="hint">(click for details)</span></h4>
+  <h3>₹200</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Mirror')">Enquire</button>
   <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
-  
 </div>
 
 <!--product 2-->
-<div class="product-card" onclick="showDetails('Customized Acrylic Box','High-quality acrylic complaint box with smooth edges and customizable printing.')">
-
+<div class="product-card" onclick="showDetails('Acrylic Name Plate','Acrylic name plates offer a sleek, modern look ideal for homes, offices, and businesses. They are lightweight, durable, and fully customizable in terms of size, shape, color, and engraving. Prices vary based on dimensions, design complexity, and material thickness. Size: 10 Inch x 2 Inch-10 Pack(customizable)')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/name_plate/image1.jpg', 'images/name_plate/image2.jpg', 'images/name_plate/image3.jpg', 'images/name_plate/image4.jpg', 'images/name_plate/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/name_plate/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/name_plate/image1.jpg', 'images/name_plate/image2.jpg', 'images/name_plate/image3.jpg', 'images/name_plate/image4.jpg', 'images/name_plate/image5.jpg'], 0)">
-
     <img class="carousel-image" src="images/name_plate/image2.jpg" style="width:200px; height:200px; display:none;">
     <img class="carousel-image" src="images/name_plate/image3.jpg" style="width:200px; height:200px; display:none;">
      <img class="carousel-image" src="images/name_plate/image4.jpg" style="width:200px; height:200px; display:none;">
       <img class="carousel-image" src="images/name_plate/image5.jpg" style="width:200px; height:200px; display:none;">
     <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
   </div>
-  <h2> Acrylic Name Plate</h2>
-  <h3>₹281</h3>
-  <button onclick="event.stopPropagation(); openEnquiry('Customized Acrylic Box')">Enquire</button>
+ <h4 class="clickable-title">Acrylic name plates offer a sleek, modern look ideal for homes...<span class="hint">(click for details)</span></h4>
+  <h3>₹500</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Name Plate')">Enquire</button>
   <button onclick="event.stopPropagation(); openQuote()">Get Quote</button>
-
-
 </div>
 
 
 <!--product 3-->
-<div class="product-card" onclick="showDetails('Customized Acrylic Box','High-quality acrylic complaint box with smooth edges and customizable printing.')">
+<div class="product-card" onclick="showDetails('Acrylic photo frame','Acrylic photo frames provide a crystal-clear, modern display for your favorite memories. They are shatter-resistant, lightweight, and can be customized in size and layout to suit any décor. Prices vary depending on the dimensions and thickness of the frame. Size: 12x18 inch 8mm(customizable)')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Photo_frames/image1.jpg', 'images/Photo_frames/image2.jpg', 'images/Photo_frames/image3.jpg', 'images/Photo_frames/image4.jpg', 'images/Photo_frames/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/Photo_frames/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Photo_frames/image1.jpg', 'images/Photo_frames/image2.jpg', 'images/Photo_frames/image3.jpg', 'images/Photo_frames/image4.jpg', 'images/Photo_frames/image5.jpg'], 0)">
@@ -81,14 +76,99 @@
     <img class="carousel-image" src="images/Photo_frames/image5.jpg" style="width:200px; height:200px; display:none;">
     <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
   </div>
-
-  <h2> Acrylic Photo Frame</h2>
-  <h3>₹281</h3>
-  <button onclick="event.stopPropagation(); openEnquiry('Customized Acrylic Box')">Enquire</button>
-  <button onclick="event.stopPropagation(); openQuote()">Get Quote</button>
+<h4 class="clickable-title">Acrylic photo frames provide a crystal-clear, modern display for...<span class="hint">(click for details)</span></h4>
+  <h3>₹870</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Photo Frame')">Enquire</button>
+ <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
 </div>
 
 
+
+<!--product 4-->
+<div class="product-card" onclick="showDetails('Acrylic wall clock','Acrylic wall clocks offer a sleek, modern aesthetic and can be fully customized with your preferred images, shapes, and sizes. They are lightweight, durable, and perfect for personal or gifting purposes. Prices vary based on the design, dimensions, and customization level Size: 10x10 Inches(customizable)')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/wall_clock/image1.jpg', 'images/wall_clock/image2.jpg', 'images/wall_clock/image3.jpg', 'images/wall_clock/image4.jpg', 'images/wall_clock/image5.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/wall_clock/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/wall_clock/image1.jpg', 'images/wall_clock/image2.jpg', 'images/wall_clock/image3.jpg', 'images/wall_clock/image4.jpg', 'images/wall_clock/image5.jpg'], 0)">
+    <img class="carousel-image" src="images/wall_clock/image2.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/wall_clock/image3.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/wall_clock/image4.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/wall_clock/image5.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+<h4 class="clickable-title">Acrylic wall clocks offer a sleek, modern aesthetic and can be...<span class="hint">(click for details)</span></h4>
+  <h3>₹900</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Photo Frame')">Enquire</button>
+ <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
+</div>
+
+
+
+<!--product 5-->
+<div class="product-card" onclick="showDetails('Acrylic Sign Holder','Acrylic sign holders are clear, durable display solutions ideal for showcasing menus, promotions, or information in offices, retail spaces, and events. They are available in various sizes and orientations, and can be customized to suit your display needs. Prices vary based on size, thickness, and type of customization Size: 3 x 2, Pcs-50 (customizable)')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/sign_holder/image1.jpg', 'images/sign_holder/image2.jpg', 'images/sign_holder/image3.jpg', 'images/sign_holder/image4.jpg', 'images/sign_holder/image5.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/sign_holder/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/sign_holder/image1.jpg', 'images/sign_holder/image2.jpg', 'images/sign_holder/image3.jpg', 'images/sign_holder/image4.jpg', 'images/sign_holder/image5.jpg'], 0)">
+    <img class="carousel-image" src="images/sign_holder/image2.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/sign_holder/image3.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/sign_holder/image4.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/sign_holder/image5.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+<h4 class="clickable-title">Acrylic sign holders are clear, durable display solutions ideal...<span class="hint">(click for details)</span></h4>
+  <h3>₹800</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Photo Frame')">Enquire</button>
+ <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
+</div>
+
+
+<!--product 6-->
+<div class="product-card" onclick="showDetails('Acrylic Wall Name Plate','Acrylic wall name plates offer a premium and modern look for homes, offices, and commercial spaces. They are fully customizable in terms of size, font, color, and design to match your personal or brand style. Durable and weather-resistant, these name plates can be tailored for both indoor and outdoor use. Prices vary based on size and customization details Size: 2 x 8, Pcs-10 (customizable)')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/wall_name_plate/image1.jpg', 'images/wall_name_plate/image2.jpg', 'images/wall_name_plate/image3.jpg', 'images/wall_name_plate/image4.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/wall_name_plate/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/wall_name_plate/image1.jpg', 'images/wall_name_plate/image2.jpg', 'images/wall_name_plate/image3.jpg', 'images/wall_name_plate/image4.jpg'], 0)">
+    <img class="carousel-image" src="images/wall_name_plate/image2.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/wall_name_plate/image3.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/wall_name_plate/image4.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+<h4 class="clickable-title">Acrylic wall name plates offer a premium and modern look for...<span class="hint">(click for details)</span></h4>
+  <h3>₹600</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Photo Frame')">Enquire</button>
+ <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
+</div>
+
+<!--product 7-->
+<div class="product-card" onclick="showDetails('Acrylic Table Top Cover','Acrylic table top covers provide a sleek, protective layer that enhances the look of your table while shielding it from scratches, spills, and daily wear. They are durable, easy to clean, and can be customized in size and thickness to perfectly fit your table. Prices vary based on dimensions and material thickness. Size:12 x 48Inches, 8mm thickness(customizable)')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/table_top_cover/image1.avif', 'images/table_top_cover/image2.avif', 'images/table_top_cover/image3.avif'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/table_top_cover/image1.avif" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/table_top_cover/image1.avif', 'images/table_top_cover/image2.avif', 'images/table_top_cover/image3.avif'], 0)">
+    <img class="carousel-image" src="images/table_top_cover/image2.avif" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/table_top_cover/image3.avif" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+<h4 class="clickable-title">Acrylic table top covers provide a sleek, protective layer...<span class="hint">(click for details)</span></h4>
+  <h3>₹4600</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Photo Frame')">Enquire</button>
+ <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
+</div>
+
+
+<!--product 8-->
+<div class="product-card" onclick="showDetails('Acrylic Showpiece Stand','Acrylic showpiece stands offer a transparent, elegant platform to display collectibles, awards, or decorative items. They are lightweight, sturdy, and available in customizable sizes and designs to suit any display need. Prices vary based on dimensions, thickness, and design preferences.. Size:12 x 12Inches, 5mm thickness(customizable)')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/showpiece_stand/image1.jpg', 'images/showpiece_stand/image2.jpg', 'images/showpiece_stand/image3.jpg','images/showpiece_stand/image4.jpg','images/showpiece_stand/image5.jpg'], 0)">
+    <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
+   <img class="carousel-image" src="images/showpiece_stand/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/showpiece_stand/image1.jpg', 'images/showpiece_stand/image2.jpg', 'images/showpiece_stand/image3.jpg','images/showpiece_stand/image4.jpg','images/showpiece_stand/image5.jpg'], 0)">
+    <img class="carousel-image" src="images/showpiece_stand/image2.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/showpiece_stand/image3.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/showpiece_stand/image4.jpg" style="width:200px; height:200px; display:none;">
+    <img class="carousel-image" src="images/showpiece_stand/image5.jpg" style="width:200px; height:200px; display:none;">
+    <button class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(this, 1)">&#10095;</button>
+  </div>
+<h4 class="clickable-title">Acrylic showpiece stands offer a transparent, elegant platform ...<span class="hint">(click for details)</span></h4>
+  <h3>₹600</h3>
+  <button onclick="event.stopPropagation(); openEnquiry('Acrylic Photo Frame')">Enquire</button>
+ <button onclick="event.stopPropagation(); openPaperWeightModal()">Get Quote</button>
+</div>
 
   <!-- Add more products as needed -->
 </div>
@@ -113,9 +193,9 @@
     <h2 id="enquiryProductHeading">Product Enquiry</h2>
     <form onsubmit="submitEnquiry(event)">
       <input type="text" id="enquiryName" placeholder="Your Name" required><br><br>
-      <input type="email" id="enquiryEmail" placeholder="Your Email" required><br><br>
+      <input type="email" id="enquiryEmail" placeholder="Your Email" !required><br><br>
       <input type="tel" id="enquiryPhone" placeholder="Your Phone Number" required><br><br>
-      <textarea id="enquiryMessage" placeholder="Your message..." required rows="4"></textarea><br><br>
+      <textarea id="enquiryMessage" placeholder="Quantity, Size in inches and Your message..." required rows="4"></textarea><br><br>
       <input type="hidden" id="enquiryProduct">
       <button type="submit">Send Enquiry</button>
     </form>

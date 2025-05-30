@@ -35,49 +35,54 @@ header h2 {
 
 /* Updated product-card */
 .product-card {
-  border: 1px solid #201818;
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 225, 0.2);
+  border-radius: 16px;
   padding: 15px;
-  width: 220px; /* Default desktop size */
+  width: 220px;
   box-sizing: border-box;
-
-  /* Cursor pointer for entire card */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(0, 255, 225, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border 0.3s ease;
   cursor: pointer;
-
-  /* Smooth transition for hover effects */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  color: #fff;
+  text-align: center;
 }
 
-/* Make sure cursor pointer applies also to images and buttons inside */
-.product-card img,
-.product-card button {
-  cursor: pointer;
-}
-
-/* Hover effect: shadow and slight scale */
 .product-card:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transform: scale(1.03);
+  transform: scale(1.05);
+  border: 1px solid rgba(0, 255, 225, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 225, 0.3), 0 0 25px rgba(0, 255, 225, 0.1);
+  background: rgba(0, 0, 0, 0.4); /* Ensure background stays dark */
 }
+
 
 .product-card img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 255, 225, 0.1);
 }
 
 .product-card button {
   margin-top: 10px;
-  background-color: #ff9900;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-
-  /* Also cursor pointer here */
+  background: transparent;
+  border: 1px solid #00ffe1;
+  color: #00ffe1;
+  padding: 8px 12px;
+  border-radius: 25px;
   cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
+
+.product-card button:hover {
+  background-color: rgba(0, 255, 225, 0.08);
+  box-shadow: 0 0 8px #00ffe1;
+}
+
 
 
 
@@ -106,28 +111,31 @@ form button {
 
 /* Marquee styles */
 .marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
   width: 100%;
-  background-color: #965050;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent dark background */
+  color: #00ffe1; /* neon cyan text */
+  font-weight: 600;
+  font-size: 18px;
   padding: 0px 0;
-  color: #333;
-  font-weight: bold;
-  font-size: 20px;
+  overflow: hidden;
   position: relative;
+  border-top: 1px solid #00ffe1;
+  border-bottom: 1px solid #00ffe1;
+  text-shadow: 0 0 5px #00ffe1, 0 0 10px #00ffe1;
 }
 
 .marquee p {
   display: inline-block;
   padding-left: 100%;
-  animation: marquee 12s linear infinite;
+  animation: scroll-left 15s linear infinite;
   white-space: nowrap;
 }
 
-.marquee p:hover {
-  animation-play-state: paused;
+@keyframes scroll-left {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
+
 
 /* Navigation links */
 .nav-link {
@@ -463,11 +471,13 @@ button:hover {
     font-size: 14px;
   }
 
-  .product-card h2,
-  .product-card h3 {
-    text-align: center;
-    font-size: 16px;
-  }
+.product-card h2,
+.product-card h3 {
+  color: #00ffe1 !important;
+  text-shadow: 0 0 3px rgba(0, 255, 225, 0.4);
+  transition: color 0.3s ease;
+}
+
 }
 @media screen and (max-width: 600px) {
   .product-grid .arrow {
@@ -505,9 +515,9 @@ button:hover {
 
 
 .product-card:hover {
-  box-shadow: 0 0 15px #00f2ff;
+  box-shadow: 0 0 15px #e9850b;
   transform: scale(1.02);
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(234, 129, 24, 0.334);
 }
 
 .modal-content {
@@ -530,4 +540,95 @@ button:hover {
   right: 15px;
   font-size: 24px;
   cursor: pointer;
+}
+.hero-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+  padding: 10px 10px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+#productSearch {
+  width: 320px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ffe1;
+  outline: none;
+  box-shadow: 0 0 10px #00ffe1, 0 0 20px rgba(0, 255, 225, 0.5);
+  transition: all 0.3s ease;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+#productSearch::placeholder {
+  color: #00ffe1b0;
+  font-style: italic;
+}
+
+#productSearch:focus {
+  box-shadow: 0 0 15px #00ffe1, 0 0 25px rgba(0, 255, 225, 0.6);
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/*glowing header*/
+.glow-text {
+  color: #00ffe1;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 2px #00ffe1, 0 0 4px #00ffe188;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+
+.glow-subtext {
+  color: #00ffe1cc;
+  font-size: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  text-shadow: 0 0 2px #00ffe1, 0 0 3px #00ffe180;
+  margin-top: 0;
+}
+
+.glow-link {
+  color: #00ffe1;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-shadow: 0 0 2px #00ffe1, 0 0 4px #00ffe144;
+  transition: all 0.3s ease;
+}
+
+.glow-link:hover {
+  background-color: rgba(0, 255, 225, 0.08);
+  box-shadow: 0 0 4px #00ffe1, 0 0 8px rgba(0, 255, 225, 0.3);
+}
+
+.product-card h2 {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.product-card h2:hover {
+  color: #ffffff !important;
+}
+.hint {
+  font-size: 0.75rem;
+  color: #999;
+  font-style: italic;
+  margin-left: 4px;
 }

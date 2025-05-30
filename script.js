@@ -53,7 +53,7 @@ function calculateQuote(event) {
   const z = height * length * 2;
   const area = (x + y + z) / 144;
   const basePrice = area * thicknessRates[thickness];
-  const finalPrice = basePrice * 1.65;
+  const finalPrice = basePrice * 1.45;
 
   document.getElementById("quoteResult").textContent =
     `Estimated Price (including labor): ₹${finalPrice.toFixed(2)}`;
@@ -78,8 +78,8 @@ function calculatePaperWeight(event) {
 
   const areaSqInch = length * breadth * 2;
   const areaSqFt = areaSqInch / 144;
-  const base = areaSqFt * thicknessRates[thickness] * 2;
-  const finalPrice = base * 1.55;
+  const base = areaSqFt * thicknessRates[thickness] ;
+  const finalPrice = base * 1.45;
 
   document.getElementById("paperWeightResult").textContent =
     `Estimated Paper Weight Cost: ₹${finalPrice.toFixed(2)}`;
@@ -191,3 +191,22 @@ function submitEnquiry(event) {
     });
 }
 
+const bgImages = [
+  'images/background/image1.jpg',
+  'images/background/image2.jpg',
+  'images/background/image3.jpg',
+  'images/background/image5.jpg',
+  'images/background/image6.jpg',
+  'images/background/image7.jpg'
+];
+
+let bgIndex = 0;
+
+function cycleBackground() {
+  const bgContainer = document.getElementById('dynamicBg');
+  bgContainer.style.backgroundImage = `url(${bgImages[bgIndex]})`;
+  bgIndex = (bgIndex + 1) % bgImages.length;
+}
+
+setInterval(cycleBackground, 5000); // Change every 5 seconds
+window.onload = cycleBackground; // Set initial image
