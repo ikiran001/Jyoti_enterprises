@@ -91,7 +91,7 @@ function filterProducts() {
   let visibleCount = 0;
 
   for (let product of products) {
-    const title = product.getElementsByTagName('h2')[0].textContent.toLowerCase();
+    const title = product.getElementsByTagName('h4')[0].textContent.toLowerCase();
     product.style.display = title.includes(input) ? "" : "none";
     if (title.includes(input)) visibleCount++;
   }
