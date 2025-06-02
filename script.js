@@ -179,6 +179,11 @@ function submitEnquiry(event) {
     .then(res => res.text())
     .then(data => {
       alert("Enquiry sent successfully!");
+       document.getElementById("enquiryName").value = "";
+      document.getElementById("enquiryEmail").value = "";
+      document.getElementById("enquiryPhone").value = "";
+      document.getElementById("enquiryProduct").value = "";
+      document.getElementById("enquiryMessage").value = "";
       closeModal();
     })
     .catch(err => {
