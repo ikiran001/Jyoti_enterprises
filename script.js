@@ -179,11 +179,12 @@ function submitEnquiry(event) {
     .then(res => res.text())
     .then(data => {
       alert("Enquiry sent successfully!");
-       document.getElementById("enquiryName").value = "";
+      document.getElementById("enquiryName").value = "";
       document.getElementById("enquiryEmail").value = "";
       document.getElementById("enquiryPhone").value = "";
       document.getElementById("enquiryProduct").value = "";
       document.getElementById("enquiryMessage").value = "";
+
       closeModal();
     })
     .catch(err => {
@@ -197,12 +198,12 @@ function submitEnquiry(event) {
 }
 
 const bgImages = [
-  'images/background/image1.jpg',
-  'images/background/image2.jpg',
-  'images/background/image3.jpg',
-  'images/background/image5.jpg',
-  'images/background/image6.jpg',
-  'images/background/image7.jpg'
+  'images/background/image1.webp',
+  'images/background/image2.webp',
+  'images/background/image3.webp',
+  'images/background/image5.webp',
+  'images/background/image6.webp',
+  'images/background/image7.webp'
 ];
 
 let bgIndex = 0;
@@ -213,8 +214,19 @@ function cycleBackground() {
   bgIndex = (bgIndex + 1) % bgImages.length;
 }
 
+const firstImage = 'images/background/image1.jpg';
+
 setInterval(cycleBackground, 5000); // Change every 5 seconds
-window.onload = cycleBackground; // Set initial image
+window.onload = () => {
+  const bgContainer = document.getElementById('dynamicBg');
+  const firstImage = bgImages[0];
+  bgContainer.style.backgroundImage = `url(${firstImage})`;
+
+  setTimeout(() => {
+    setInterval(cycleBackground, 5000); // Start carousel after delay
+  }, 2000); // Delay background carousel by 2 sec
+};
+
 
 
 //need help function 
