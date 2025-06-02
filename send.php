@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = $_POST['message'] ?? '';
 
     // Save enquiry to database
-    $conn = new mysqli("localhost", "root", "", "jyoti_enterprises");
+    $conn = new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyoti_enterprises");
     if ($conn->connect_error) {
         die("DB connection failed: " . $conn->connect_error);
     }
