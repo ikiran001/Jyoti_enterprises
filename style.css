@@ -8,7 +8,7 @@ header {
   background-color: #232f3e;
   color: rgb(172, 117, 117);
   text-align: center;
-  padding: 20px;
+
 }
 
 header h1 {
@@ -310,47 +310,8 @@ button:hover {
   overflow: auto; /* Ensures scrolling if content exceeds */
   background-color: rgba(0, 0, 0, 0.6); /* Proper overlay */
 }
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  position: relative;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
 
 
-
-
-/* 🪟 Modal Content Area */
-.modal-content {
-  background: #fff;
-  margin: 5% auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
-  border-radius: 10px;
-  text-align: center;
-}
-
-
-/* ❌ Close Button */
-.modal .close {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-}
 
 /* 🖼 Image Viewer */
 #viewerImage {
@@ -520,27 +481,7 @@ button:hover {
   background: rgba(234, 129, 24, 0.334);
 }
 
-.modal-content {
-  background-color: white;
-  margin: 10% auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  position: relative;
-}
 
-.modal-content h2 {
-  margin-top: 0;
-}
-
-.modal-content .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
 .hero-background {
   background-size: cover;
   background-position: center;
@@ -631,4 +572,89 @@ button:hover {
   color: #999;
   font-style: italic;
   margin-left: 4px;
+}
+
+
+/*need help futurestiv glow*/
+.futuristic-glow {
+  background: linear-gradient(135deg, #00ffe1 0%, #0fffc3 100%);
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow: 0 0 10px #00ffe1, 0 0 20px rgba(0, 255, 225, 0.4);
+  animation: pulseGlow 2s infinite;
+  transition: all 0.3s ease-in-out;
+}
+
+.futuristic-glow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffe1, 0 0 30px rgba(0, 255, 225, 0.6);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 8px #00ffe1;
+  }
+  50% {
+    box-shadow: 0 0 18px #00ffe1, 0 0 28px rgba(0, 255, 225, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px #00ffe1;
+  }
+}
+
+
+
+/*Enquiry form*/
+.modal-content {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(0, 255, 225, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  margin: 8% auto;
+  box-shadow: 0 0 25px rgba(0, 255, 225, 0.2), 0 0 45px rgba(0, 255, 225, 0.1);
+  animation: slideFadeIn 0.4s ease;
+  color: #00ffe1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  text-align: center;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content h2 {
+  color: #00ffe1;
+  margin-top: 0;
+  text-shadow: 0 0 5px #00ffe1, 0 0 10px rgba(0, 255, 225, 0.3);
+}
+
+/* ❌ Close Button */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #00ffe1;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal .close:hover {
+  transform: scale(1.2);
+  color: #ffffff;
 }

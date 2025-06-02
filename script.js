@@ -210,3 +210,31 @@ function cycleBackground() {
 
 setInterval(cycleBackground, 5000); // Change every 5 seconds
 window.onload = cycleBackground; // Set initial image
+
+
+//need help function 
+function openGeneralEnquiry() {
+  document.getElementById('enquiryProduct').value = "";
+  document.getElementById('enquiryModal').style.display = 'block';
+  document.getElementById('enquiryProductHeading').innerHTML = "<span style='color:#00ffe1;'>General Enquiry</span>";
+
+  // Optional toast message
+  const toast = document.createElement('div');
+  toast.textContent = "Opening general enquiry...";
+  toast.style.position = "fixed";
+  toast.style.bottom = "80px";
+  toast.style.right = "20px";
+  toast.style.background = "#00ffe1";
+  toast.style.color = "#000";
+  toast.style.padding = "10px 20px";
+  toast.style.borderRadius = "20px";
+  toast.style.boxShadow = "0 0 10px rgba(0,255,225,0.5)";
+  toast.style.zIndex = "9999";
+  toast.style.fontWeight = "bold";
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2000);
+}
+
