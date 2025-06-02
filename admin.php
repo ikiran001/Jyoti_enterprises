@@ -16,7 +16,7 @@ if (isset($_POST['password']) && $_POST['password'] === 'K@9833514014j') {
   die("Wrong password!");
 }
 
-$conn = new mysqli("localhost", "root", "", "jyoti_enterprises");
+$conn = new mysqli("localhost", "KiranJ", "K@9833514014j", "jyotiffj_jyoti_Enterprises");
 if ($conn->connect_error) die("DB error");
 
 $result = $conn->query("SELECT * FROM enquiries ORDER BY created_at DESC");
