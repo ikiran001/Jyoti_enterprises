@@ -164,7 +164,7 @@
 
 
 <?php
-$conn = new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyoti_enterprises");
+$conn = new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyotiffj_jyoti_Enterprises");
 $result = $conn->query("SELECT name, message, rating FROM testimonials WHERE approved = 1 ORDER BY created_at DESC");
 ?>
 

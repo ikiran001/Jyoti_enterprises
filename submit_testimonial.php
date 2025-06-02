@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = $_POST['message'] ?? '';
     $rating = $_POST['rating'] ?? 5;
 
-    $conn = new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyoti_enterprises");
+    $conn = new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyotiffj_jyoti_Enterprises");
     if ($conn->connect_error) die("DB error");
 
     $stmt = $conn->prepare("INSERT INTO testimonials (name, message, rating) VALUES (?, ?, ?)");
