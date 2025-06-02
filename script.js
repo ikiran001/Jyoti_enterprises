@@ -214,19 +214,8 @@ function cycleBackground() {
   bgIndex = (bgIndex + 1) % bgImages.length;
 }
 
-const firstImage = 'images/background/image1.jpg';
-
 setInterval(cycleBackground, 5000); // Change every 5 seconds
-window.onload = () => {
-  const bgContainer = document.getElementById('dynamicBg');
-  const firstImage = bgImages[0];
-  bgContainer.style.backgroundImage = `url(${firstImage})`;
-
-  setTimeout(() => {
-    setInterval(cycleBackground, 5000); // Start carousel after delay
-  }, 2000); // Delay background carousel by 2 sec
-};
-
+window.onload = cycleBackground; // Set initial image
 
 
 //need help function 
