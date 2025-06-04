@@ -198,12 +198,7 @@ function submitEnquiry(event) {
 }
 
 const bgImages = [
-  'images/background/image1.webp',
-  'images/background/image2.webp',
-  'images/background/image3.webp',
-  'images/background/image5.webp',
-  'images/background/image6.webp',
-  'images/background/image7.webp'
+  'images/background/image1.webp'
 ];
 
 let bgIndex = 0;
