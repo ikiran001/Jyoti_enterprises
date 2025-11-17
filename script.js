@@ -279,6 +279,7 @@ function hydrateProductCards() {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.dataset.product = id;
+    card.setAttribute('role', 'article');
 
     const carousel = document.createElement('div');
     carousel.className = 'image-carousel';
@@ -288,6 +289,7 @@ function hydrateProductCards() {
     carousel.addEventListener('click', (event) => goToProduct(event, id));
     carousel.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
         goToProduct(event, id);
       }
     });
@@ -295,6 +297,7 @@ function hydrateProductCards() {
     const leftArrow = document.createElement('button');
     leftArrow.className = 'arrow left-arrow';
     leftArrow.innerHTML = '&#10094;';
+    leftArrow.setAttribute('aria-label', 'Previous image');
     leftArrow.addEventListener('click', function(event) {
       event.stopPropagation();
       changeImage(this, -1);
@@ -315,6 +318,7 @@ function hydrateProductCards() {
     const rightArrow = document.createElement('button');
     rightArrow.className = 'arrow right-arrow';
     rightArrow.innerHTML = '&#10095;';
+    rightArrow.setAttribute('aria-label', 'Next image');
     rightArrow.addEventListener('click', function(event) {
       event.stopPropagation();
       changeImage(this, 1);
@@ -334,6 +338,15 @@ function hydrateProductCards() {
     summary.className = 'product-card-summary';
     const description = product.description || '';
     summary.textContent = description.length > 140 ? `${description.slice(0, 137)}…` : description;
+    summary.tabIndex = 0;
+    summary.setAttribute('role', 'link');
+    summary.addEventListener('click', (event) => goToProduct(event, id));
+    summary.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        goToProduct(event, id);
+      }
+    });
     card.appendChild(summary);
 
     const price = document.createElement('p');
