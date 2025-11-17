@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jyoti Enterprises · Acrylic Product Detail</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="je.ico" type="image/x-icon">
+</head>
+<body class="product-detail-page">
+  <header class="product-page-header">
+    <a href="index.html" class="logo-chip">Jyoti Enterprises</a>
+    <nav class="product-page-nav">
+      <a href="index.html#catalog">Catalog</a>
+      <a href="about.php">About</a>
+      <a href="contact.php">Contact</a>
+    </nav>
+    <button class="primary-cta compact" onclick="openGeneralEnquiry()">Start a project</button>
+  </header>
+
+  <main class="product-page-main">
+    <section class="product-page-hero">
+      <div class="product-page-breadcrumb">
+        <a href="index.html">Catalog</a>
+        <span>/</span>
+        <span id="productPageBreadcrumb">Loading…</span>
+      </div>
+
+      <div class="product-page-grid" id="productPageRoot">
+        <div class="product-page-gallery">
+          <div class="media-surface product-page-media">
+            <img id="productPageHeroImage" src="" alt="Acrylic product hero render">
+            <div class="media-glow"></div>
+          </div>
+          <div class="detail-thumbs" id="productPageThumbs"></div>
+        </div>
+        <div class="product-page-info">
+          <p class="micro-label" id="productPageTagline"></p>
+          <h1 id="productPageTitle">Acrylic experience</h1>
+          <p id="productPageDescription" class="detail-description"></p>
+          <div class="detail-spec-chips">
+            <span id="productPageSize"></span>
+            <span id="productPageFinish"></span>
+            <span id="productPageLead"></span>
+          </div>
+          <div class="detail-price">
+            <span>Investment window</span>
+            <strong id="productPagePrice"></strong>
+          </div>
+          <ul class="detail-feature-list" id="productPageFeatures"></ul>
+          <div class="detail-cta">
+            <button class="primary-cta" id="productPagePrimaryCta">Request custom build</button>
+            <button class="ghost-cta" id="productPageWhatsappCta">Preview on WhatsApp</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-page-fallback" id="productPageFallback">
+        <p>
+          The requested acrylic build is unavailable. Return to the
+          <a href="index.html">catalog</a> or drop us a note.
+        </p>
+      </div>
+    </section>
+
+    <section class="product-page-highlights">
+      <div class="highlight-card">
+        <h3>Rapid prototyping</h3>
+        <p>CAD-to-cut cycles as fast as 72 hours for pilots, retail launches, and influencer drops.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Architect-grade finish</h3>
+        <p>OptiClear™ sheets, flame-polished edges, and dust-free assembly lines deliver pristine clarity.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Pan-India logistics</h3>
+        <p>Crated packaging, fragile labels, and insured dispatch keep the acrylic sheen intact door-to-door.</p>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://wa.me/917032174014?text=Hi%20Jyoti%20Enterprises%2C%20I%20have%20an%20enquiry."
+     class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+         alt="WhatsApp Chat"
+         style="width: 55px; height: 55px;">
+  </a>
+  <div class="enquiry-float futuristic-glow" onclick="openGeneralEnquiry();">
+    <span>📩 Need Help?</span>
+  </div>
+
+  <div id="enquiryModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="enquiryProductHeading">Product Enquiry</h2>
+      <form onsubmit="submitEnquiry(event)">
+        <input type="text" id="enquiryName" placeholder="Your Name" required>
+        <input type="email" id="enquiryEmail" placeholder="Your Email">
+        <input type="tel" id="enquiryPhone" placeholder="Your Phone Number" required>
+        <textarea id="enquiryMessage" placeholder="Quantity, Size in inches and Your message..." required rows="4"></textarea>
+        <input type="hidden" id="enquiryProduct">
+        <button type="submit">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="enquiryLoader" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:15px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); font-weight:bold; z-index:2000;">
+    Sending enquiry...
+  </div>
+
+  <script src="products-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
