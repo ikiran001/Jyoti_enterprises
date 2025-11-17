@@ -13,29 +13,58 @@
 
 <header>
   <div class="hero-background" id="dynamicBg">
-  <h1 class="glow-text">Jyoti Enterprises</h1>
-<h2 class="glow-subtext">Shaping Tomorrow in Acrylic...</h2>
-
- <div class="marquee">
-  <p>Contact name: Prakash Jadhav &nbsp;&nbsp;&nbsp; 📞 9820730645 &nbsp;&nbsp;&nbsp; 📍 Subhashnagar, Ghatkopar West, Mumbai 400084  &nbsp;&nbsp;&nbsp;Since 1995..</p>
-</div>
-
-<div class="nav-container">
-  <a href="contact.php" class="nav-link glow-link">Contact Us</a>
-  <a href="about.php" class="nav-link glow-link">About Us</a>
-</div>
-
-
- <div class="search-container">
-  <input type="text" id="productSearch" placeholder="🔍 Search products..." onkeyup="filterProducts()">
-</div>
-
-
-
+    <div class="hero-veil"></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow-chip">Precision Acrylic Fabrication · Since 1995</p>
+        <h1 class="glow-text">Jyoti Enterprises</h1>
+        <h2 class="glow-subtext">Futuristic retail displays, lighting-fast prototyping, flawless clarity.</h2>
+        <div class="hero-highlights">
+          <span>Custom laser-cut builds</span>
+          <span>Retail + industrial batches</span>
+          <span>Architect-grade finishing</span>
+        </div>
+        <div class="nav-container">
+          <a href="contact.php" class="nav-link glow-link">Contact</a>
+          <a href="about.php" class="nav-link glow-link">About</a>
+          <a href="#catalog" class="nav-link glow-link">Catalog</a>
+        </div>
+        <div class="hero-cta">
+          <button class="primary-cta" onclick="openGeneralEnquiry()">Start a project</button>
+          <button class="ghost-cta" onclick="document.querySelector('#catalog').scrollIntoView({behavior:'smooth'});">Browse acrylic lineup</button>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <div class="holo-core">
+          <span class="pulse"></span>
+          <span class="pulse delay"></span>
+          <span class="pulse delay-2"></span>
+          <div class="floating-spec">
+            <p>Material: <strong>OptiClear™ PMMA</strong></p>
+            <p>Finish: <strong>Gloss + Frosted</strong></p>
+            <p>Lead time: <strong>3-5 days</strong></p>
+          </div>
+        </div>
+        <div class="hero-slab"></div>
+        <div class="hero-arc"></div>
+      </div>
+    </div>
+    <div class="marquee">
+      <p>Contact name: Prakash Jadhav &nbsp;&nbsp;&nbsp; 📞 9820730645 &nbsp;&nbsp;&nbsp; 📍 Subhashnagar, Ghatkopar West, Mumbai 400084  &nbsp;&nbsp;&nbsp;Since 1995..</p>
+    </div>
+    <div class="search-container">
+      <input type="text" id="productSearch" placeholder="🔍 Search acrylic solutions, e.g. temple, trophy..." onkeyup="filterProducts()">
+    </div>
+  </div>
 </header>
+<div class="catalog-intro" id="catalog">
+  <p class="micro-label">Immersive Acrylic Catalog</p>
+  <h3>Tap a product to open its holographic detail sheet.</h3>
+  <p>Each experience includes a gallery, specs, finish options, and a one-tap enquiry just like Amazon’s “buy box”.</p>
+</div>
 <div class="product-grid">
 <!--product 1-->
-<div class="product-card" onclick="showDetails('Acrylic Mirror','Acrylic mirrors are lightweight, shatter-resistant alternatives to glass, perfect for both decorative and functional use. They can be customized to any size and shape to suit your space. Prices vary based on the dimensions and thickness of the mirror. Size: 12 Inch x 8 Inch ,thickness-3mm (customizable)')">
+<div class="product-card" data-product="acrylic-mirror" onclick="openProductDetail('acrylic-mirror')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/mirror/image1.jpg', 'images/mirror/image2.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/mirror/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/mirror/image1.jpg', 'images/mirror/image2.jpg'], 0)">
@@ -48,7 +77,7 @@
 </div>
 
 <!--product 2-->
-<div class="product-card" onclick="showDetails('Acrylic Name Plate','Acrylic name plates offer a sleek, modern look ideal for homes, offices, and businesses. They are lightweight, durable, and fully customizable in terms of size, shape, color, and engraving. Prices vary based on dimensions, design complexity, and material thickness. Size: 10 Inch x 2 Inch(customizable)')">
+<div class="product-card" data-product="acrylic-name-plate" onclick="openProductDetail('acrylic-name-plate')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/name_plate/image1.jpg', 'images/name_plate/image2.jpg', 'images/name_plate/image3.jpg', 'images/name_plate/image4.jpg', 'images/name_plate/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/name_plate/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/name_plate/image1.jpg', 'images/name_plate/image2.jpg', 'images/name_plate/image3.jpg', 'images/name_plate/image4.jpg', 'images/name_plate/image5.jpg'], 0)">
@@ -65,7 +94,7 @@
 
 
 <!--product 3-->
-<div class="product-card" onclick="showDetails('Acrylic photo frame','Acrylic photo frames provide a crystal-clear, modern display for your favorite memories. They are shatter-resistant, lightweight, and can be customized in size and layout to suit any décor. Prices vary depending on the dimensions and thickness of the frame. Size: 12x18 inch 8mm(customizable)')">
+<div class="product-card" data-product="acrylic-photo-frame" onclick="openProductDetail('acrylic-photo-frame')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Photo_frames/image1.jpg', 'images/Photo_frames/image2.jpg', 'images/Photo_frames/image3.jpg', 'images/Photo_frames/image4.jpg', 'images/Photo_frames/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/Photo_frames/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Photo_frames/image1.jpg', 'images/Photo_frames/image2.jpg', 'images/Photo_frames/image3.jpg', 'images/Photo_frames/image4.jpg', 'images/Photo_frames/image5.jpg'], 0)">
@@ -84,7 +113,7 @@
 
 
 <!--product 4-->
-<div class="product-card" onclick="showDetails('Acrylic wall clock','Acrylic wall clocks offer a sleek, modern aesthetic and can be fully customized with your preferred images, shapes, and sizes. They are lightweight, durable, and perfect for personal or gifting purposes. Prices vary based on the design, dimensions, and customization level Size: 10x10 Inches(customizable)')">
+<div class="product-card" data-product="acrylic-wall-clock" onclick="openProductDetail('acrylic-wall-clock')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/wall_clock/image1.jpg', 'images/wall_clock/image2.jpg', 'images/wall_clock/image3.jpg', 'images/wall_clock/image4.jpg', 'images/wall_clock/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/wall_clock/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/wall_clock/image1.jpg', 'images/wall_clock/image2.jpg', 'images/wall_clock/image3.jpg', 'images/wall_clock/image4.jpg', 'images/wall_clock/image5.jpg'], 0)">
@@ -102,7 +131,7 @@
 
 
 <!--product 5-->
-<div class="product-card" onclick="showDetails('Acrylic Sign Holder','Acrylic sign holders are clear, durable display solutions ideal for showcasing menus, promotions, or information in offices, retail spaces, and events. They are available in various sizes and orientations, and can be customized to suit your display needs. Prices vary based on size, thickness, and type of customization Size: 3 x 2 (customizable)')">
+<div class="product-card" data-product="acrylic-sign-holder" onclick="openProductDetail('acrylic-sign-holder')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/sign_holder/image1.jpg', 'images/sign_holder/image2.jpg', 'images/sign_holder/image3.jpg', 'images/sign_holder/image4.jpg', 'images/sign_holder/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/sign_holder/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/sign_holder/image1.jpg', 'images/sign_holder/image2.jpg', 'images/sign_holder/image3.jpg', 'images/sign_holder/image4.jpg', 'images/sign_holder/image5.jpg'], 0)">
@@ -119,7 +148,7 @@
 
 
 <!--product 6-->
-<div class="product-card" onclick="showDetails('Acrylic Wall Name Plate','Acrylic wall name plates offer a premium and modern look for homes, offices, and commercial spaces. They are fully customizable in terms of size, font, color, and design to match your personal or brand style. Durable and weather-resistant, these name plates can be tailored for both indoor and outdoor use. Prices vary based on size and customization details Size: 2 x 8 (customizable)')">
+<div class="product-card" data-product="acrylic-wall-name-plate" onclick="openProductDetail('acrylic-wall-name-plate')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/wall_name_plate/image1.jpg', 'images/wall_name_plate/image2.jpg', 'images/wall_name_plate/image3.jpg', 'images/wall_name_plate/image4.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/wall_name_plate/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/wall_name_plate/image1.jpg', 'images/wall_name_plate/image2.jpg', 'images/wall_name_plate/image3.jpg', 'images/wall_name_plate/image4.jpg'], 0)">
@@ -134,7 +163,7 @@
 </div>
 
 <!--product 7-->
-<div class="product-card" onclick="showDetails('Acrylic Table Top Cover','Acrylic table top covers provide a sleek, protective layer that enhances the look of your table while shielding it from scratches, spills, and daily wear. They are durable, easy to clean, and can be customized in size and thickness to perfectly fit your table. Prices vary based on dimensions and material thickness. Size:12 x 48Inches, 8mm thickness(customizable)')">
+<div class="product-card" data-product="acrylic-table-top-cover" onclick="openProductDetail('acrylic-table-top-cover')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/table_top_cover/image1.avif', 'images/table_top_cover/image2.avif', 'images/table_top_cover/image3.avif'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/table_top_cover/image1.avif" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/table_top_cover/image1.avif', 'images/table_top_cover/image2.avif', 'images/table_top_cover/image3.avif'], 0)">
@@ -149,7 +178,7 @@
 
 
 <!--product 8-->
-<div class="product-card" onclick="showDetails('Acrylic Showpiece Stand','Acrylic showpiece stands offer a transparent, elegant platform to display collectibles, awards, or decorative items. They are lightweight, sturdy, and available in customizable sizes and designs to suit any display need. Prices vary based on dimensions, thickness, and design preferences.. Size:12 x 12Inches, 5mm thickness(customizable)')">
+<div class="product-card" data-product="acrylic-showpiece-stand" onclick="openProductDetail('acrylic-showpiece-stand')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/showpiece_stand/image1.jpg', 'images/showpiece_stand/image2.jpg', 'images/showpiece_stand/image3.jpg','images/showpiece_stand/image4.jpg','images/showpiece_stand/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/showpiece_stand/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/showpiece_stand/image1.jpg', 'images/showpiece_stand/image2.jpg', 'images/showpiece_stand/image3.jpg','images/showpiece_stand/image4.jpg','images/showpiece_stand/image5.jpg'], 0)">
@@ -165,7 +194,7 @@
 </div>
 
 <!--product 9-->
-<div class="product-card" onclick="showDetails('Acrylic Shadow Box','Acrylic Shadow Boxes offer elegant protection for your most treasured items.Available in various shapes, depths, and finishes to match your style.Pricing varies with customization and size...10x12x4CM (customizable)')">
+<div class="product-card" data-product="acrylic-shadow-box" onclick="openProductDetail('acrylic-shadow-box')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/shadow_box/image1.jpg', 'images/shadow_box/image2.jpg', 'images/shadow_box/image3.jpg','images/shadow_box/image4.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
    <img class="carousel-image" src="images/shadow_box/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/shadow_box/image1.jpg', 'images/shadow_box/image2.jpg', 'images/shadow_box/image3.jpg','images/shadow_box/image4.jpg'], 0)">
@@ -184,7 +213,7 @@
 
 
 <!--product 9-->
-<div class="product-card" onclick="showDetails('Acrylic Trophies','Acrylic Trophies combine modern design with crystal-clear elegance, perfect for awards and recognition.Lightweight, durable, and fully customizable in shape, size, and engraving.Prices vary based on design, size, and customization...(customizable)')">
+<div class="product-card" data-product="acrylic-trophies" onclick="openProductDetail('acrylic-trophies')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/trophies/image1.jpg', 'images/trophies/image2.jpg', 'images/trophies/image3.jpg','images/trophies/image4.jpg', 'images/trophies/image5.jpg', 'images/trophies/image6.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/trophies/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/trophies/image1.jpg', 'images/trophies/image2.jpg', 'images/trophies/image3.jpg','images/trophies/image4.jpg', 'images/trophies/image5.jpg', 'images/trophies/image6.jpg'], 0)">
@@ -202,7 +231,7 @@
 
  
 <!--product 10-->
-<div class="product-card" onclick="showDetails('Acrylic Jewelry Organizer','Elegant and customizable, the Acrylic Jewelry Organizer is perfect for storing rings, earrings, and more.Available in various sizes, colors, and with two or more drawers for easy, dust-free access.Pricing varies based on design, dimensions, and drawer configuration....(customizable)')">
+<div class="product-card" data-product="acrylic-jewelry-organizer" onclick="openProductDetail('acrylic-jewelry-organizer')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Jewelry_Organizer/image1.jpg', 'images/Jewelry_Organizer/image2.jpg', 'images/Jewelry_Organizer/image3.jpg','images/Jewelry_Organizer/image4.jpg', 'images/Jewelry_Organizer/image5.jpg', 'images/Jewelry_Organizer/image6.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/Jewelry_Organizer/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Jewelry_Organizer/image1.jpg', 'images/Jewelry_Organizer/image2.jpg', 'images/Jewelry_Organizer/image3.jpg','images/Jewelry_Organizer/image4.jpg', 'images/Jewelry_Organizer/image5.jpg', 'images/Jewelry_Organizer/image6.jpg'], 0)">
@@ -220,7 +249,7 @@
 
 
 <!--product 11-->
-<div class="product-card" onclick="showDetails('Acrylic Belt Organizer','Belt Organizer Acrylic For Closet And Drawer, Clear Belt Storage Holder Display Case For Men & Women, Tie Holder, Jewelry Holder, Cerulean 15x5x5Inch....(customizable)')">
+<div class="product-card" data-product="acrylic-belt-organizer" onclick="openProductDetail('acrylic-belt-organizer')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/belt_storage/image1.jpg', 'images/belt_storage/image2.jpg', 'images/belt_storage/image3.jpg','images/belt_storage/image4.jpg', 'images/belt_storage/image5.jpg', 'images/belt_storage/image6.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/belt_storage/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/belt_storage/image1.jpg', 'images/belt_storage/image2.jpg', 'images/belt_storage/image3.jpg','images/belt_storage/image4.jpg', 'images/belt_storage/image5.jpg', 'images/belt_storage/image6.jpg'], 0)">
@@ -237,8 +266,8 @@
 </div>
 
 <!--product 12-->
-<div class="product-card" onclick="showDetails('Acrylic Sunglasses Organizer','Acrylic Sunglasses Organizer with 4 Lid Drawer Organizer Rectang Supplies for Bathroom, Dorm, Desk, Countertop, Office (Transparent)....(customizable)')">
-  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/belt_storage/image1.jpg', 'images/Sunglasses_organizer/image2.jpg', 'images/Sunglasses_organizer/image3.jpg','images/Sunglasses_organizer/image4.jpg'], 0)">
+<div class="product-card" data-product="acrylic-sunglasses-organizer" onclick="openProductDetail('acrylic-sunglasses-organizer')">
+  <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Sunglasses_organizer/image1.jpg', 'images/Sunglasses_organizer/image2.jpg', 'images/Sunglasses_organizer/image3.jpg','images/Sunglasses_organizer/image4.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/Sunglasses_organizer/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Sunglasses_organizer/image1.jpg', 'images/Sunglasses_organizer/image2.jpg', 'images/Sunglasses_organizer/image3.jpg','images/Sunglasses_organizer/image4.jpg'], 0)">
     <img class="carousel-image" src="images/Sunglasses_organizer/image2.jpg" style="width:200px; height:200px; display:none;">
@@ -252,7 +281,7 @@
 </div>
 
 <!--product 13-->
-<div class="product-card" onclick="showDetails('Acrylic Fish Shape Lipstick Organizer','Acrylic Fish Shape Lipstick Organizer Tower, Lip Gloss Storage Holder Stand For 16 Sticks, Perfect Makeup Cosmetic Vanity And Dresser Display, Cosmetics, Transparent....(customizable)')">
+<div class="product-card" data-product="acrylic-lipstick-organizer" onclick="openProductDetail('acrylic-lipstick-organizer')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/lipstick_organizer/image1.jpg', 'images/lipstick_organizer/image2.jpg', 'images/lipstick_organizer/image3.jpg','images/lipstick_organizer/image4.jpg','images/lipstick_organizer/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/lipstick_organizer/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/lipstick_organizer/image1.jpg', 'images/lipstick_organizer/image2.jpg', 'images/lipstick_organizer/image3.jpg','images/lipstick_organizer/image4.jpg','images/lipstick_organizer/image5.jpg'], 0)">
@@ -269,7 +298,7 @@
 
 
 <!--product 14-->
-<div class="product-card" onclick="showDetails('Acrylic shoe Box','Acrylic Shoe Boxes - Transparent Acrylic Sneaker Box Crates | DIY Shoes Storage Box for Men, Women Display Shoe Rack for Sneakers Flats Flip-flops Loafers Heels Wedges (L36 x B 27 x H 23cm)..(customizable)')">
+<div class="product-card" data-product="acrylic-shoe-box" onclick="openProductDetail('acrylic-shoe-box')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/shoe_box/image1.jpg', 'images/shoe_box/image2.jpg', 'images/shoe_box/image3.jpg','images/shoe_box/image4.jpg','images/shoe_box/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/shoe_box/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/shoe_box/image1.jpg', 'images/shoe_box/image2.jpg', 'images/shoe_box/image3.jpg','images/shoe_box/image4.jpg','images/shoe_box/image5.jpg'], 0)">
@@ -286,7 +315,7 @@
 
 
 <!--product 16-->
-<div class="product-card" onclick="showDetails('Acrylic Multipurpose Stand','Acrylic Multipurpose Stand - 3 Slot Acrylic Pen Stand and Makeup Brush Holder Organizer Clear Acrylic Cosmetics Storage Case for Pens Brushes Lipsticks Nail Polish Office and Bathroom Accessories Organizer..(customizable)')">
+<div class="product-card" data-product="acrylic-multipurpose-stand" onclick="openProductDetail('acrylic-multipurpose-stand')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Pen_stand/image1.jpg', 'images/Pen_stand/image2.jpg', 'images/Pen_stand/image3.jpg','images/Pen_stand/image4.jpg','images/Pen_stand/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/Pen_stand/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Pen_stand/image1.jpg', 'images/Pen_stand/image2.jpg', 'images/Pen_stand/image3.jpg','images/Pen_stand/image4.jpg','images/Pen_stand/image5.jpg'], 0)">
@@ -303,7 +332,7 @@
 
 
 <!--product 17-->
-<div class="product-card" onclick="showDetails('Acrylic Display Stand','Acrylic Display Holder Display Stand 8.5x12 Signage Holder Size - A4 Menu Flyer Paper Sign Holders for Restaurants, School, Office, Store (customizable)')">
+<div class="product-card" data-product="acrylic-display-stand" onclick="openProductDetail('acrylic-display-stand')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/display_holder/image1.jpg', 'images/display_holder/image2.jpg', 'images/display_holder/image3.jpg','images/display_holder/image4.jpg','images/display_holder/image5.jpg','images/display_holder/image6.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/display_holder/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/display_holder/image1.jpg', 'images/display_holder/image2.jpg', 'images/display_holder/image3.jpg','images/display_holder/image4.jpg','images/display_holder/image5.jpg','images/display_holder/image6.jpg'], 0)">
@@ -322,7 +351,7 @@
 
 
 <!--product 18-->
-<div class="product-card" onclick="showDetails('Acrylic Paper Weight','Acrylic Paper Weight Tiranga Paper Weight for Office Table Slylish Paper Weight National Flag Unbreakable Paper Weight (3x2 Inches) (customizable)')">
+<div class="product-card" data-product="acrylic-paper-weight" onclick="openProductDetail('acrylic-paper-weight')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/paper_weight/image1.jpg', 'images/paper_weight/image2.jpg', 'images/paper_weight/image3.jpg','images/paper_weight/image4.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/paper_weight/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/display_holder/image1.jpg', 'images/display_holder/image2.jpg', 'images/display_holder/image3.jpg','images/display_holder/image4.jpg'], 0)">
@@ -339,7 +368,7 @@
 
 
 <!--product 19-->
-<div class="product-card" onclick="showDetails('Acrylic Sign Boards','Acrylic Sign Boards are durable, weather-resistant display solutions perfect for name plates, office branding, shop signage, or directional instructions. These boards can be customized in various shapes, thicknesses, and finishes—glossy, matte, or backlit. Whether it is for a professional workspace or decorative home use, these signboards offer a sleek, modern appeal. Prices vary depending on the size, shape, design complexity,  8 x 4inches(customizable)')">
+<div class="product-card" data-product="acrylic-sign-board" onclick="openProductDetail('acrylic-sign-board')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/sign_boards/image1.jpg', 'images/sign_boards/image2.jpg', 'images/sign_boards/image3.jpg','images/sign_boards/image4.jpg','images/sign_boards/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/sign_boards/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/sign_boards/image1.jpg', 'images/sign_boards/image2.jpg', 'images/sign_boards/image3.jpg','images/sign_boards/image4.jpg','images/sign_boards/image5.jpg'], 0)">
@@ -356,7 +385,7 @@
 
 
 <!--product 20-->
-<div class="product-card" onclick="showDetails('Acrylic Paper Holder','Acrylic Sign Holder Table Sign Holder Double Sided T Shape Clear Plastic Desktop Display Holder Vertical Menu Stand Sign Holders for School, Office, Hotel, Party (04 X 6 Inch) (customizable)')">
+<div class="product-card" data-product="acrylic-paper-holder" onclick="openProductDetail('acrylic-paper-holder')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/Paper_holder/image1.jpg', 'images/Paper_holder/image2.jpg', 'images/Paper_holder/image3.jpg','images/Paper_holder/image4.jpg','images/Paper_holder/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/Paper_holder/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/Paper_holder/image1.jpg', 'images/Paper_holder/image2.jpg', 'images/Paper_holder/image3.jpg','images/Paper_holder/image4.jpg','images/Paper_holder/image5.jpg'], 0)">
@@ -373,7 +402,7 @@
 
 
 <!--product 21-->
-<div class="product-card" onclick="showDetails('Acrylic Bussiness-card Holder','Acrylic Transparent Crystal-Clear Visiting Business Card Holder/Display Stand Desk Organizer For Office Table (customizable)')">
+<div class="product-card" data-product="acrylic-business-card-holder" onclick="openProductDetail('acrylic-business-card-holder')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/bussines-card_holder/image1.jpg', 'images/bussines-card_holder/image2.jpg', 'images/bussines-card_holder/image3.jpg','images/bussines-card_holder/image4.jpg','images/bussines-card_holder/image5.jpg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/bussines-card_holder/image1.jpg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/bussines-card_holder/image1.jpg', 'images/bussines-card_holder/image2.jpg', 'images/bussines-card_holder/image3.jpg','images/bussines-card_holder/image4.jpg','images/bussines-card_holder/image5.jpg'], 0)">
@@ -392,7 +421,7 @@
 
 
 <!--product 22-->
-<div class="product-card" onclick="showDetails('Acrylic Temple','🛕 Premium Acrylic Home Temples with LED Lighting Bring divine elegance to your home with our beautifully crafted acrylic temples, designed for modern interiors. Made with high-quality laser-cut acrylic, each temple is fitted with warm LED lighting to enhance the spiritual ambiance of your prayer space.')">
+<div class="product-card" data-product="acrylic-temple" onclick="openProductDetail('acrylic-temple')">
   <div class="image-carousel" onclick="event.stopPropagation(); openImageViewer(['images/temple/image1.jpeg', 'images/temple/image2.jpeg', 'images/temple/image3.jpeg','images/temple/image4.jpeg'], 0)">
     <button class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(this, -1)">&#10094;</button>
     <img class="carousel-image" src="images/temple/image1.jpeg" style="width:200px; height:200px;" onclick="event.stopPropagation(); openImageViewer(['images/temple/image1.jpeg', 'images/temple/image2.jpeg', 'images/temple/image3.jpeg','images/temple/image4.jpeg'], 0)">
@@ -413,15 +442,43 @@
   No products matched your search. Please try different keywords.
 </p>
 
-
-<!-- Product Detail Modal -->
-<div id="productModal" class="modal" style="display: none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <p id="modalDesc"></p>
+<!-- Immersive Product Detail Panel -->
+<div id="productDetailPanel" class="detail-panel">
+  <div class="detail-shell">
+    <button class="detail-close" onclick="closeDetailPanel()">×</button>
+      <div class="detail-body">
+      <div class="detail-media">
+        <div class="media-surface">
+          <img id="detailHeroImage" src="" alt="Acrylic product hero">
+          <div class="media-glow"></div>
+            <button class="detail-nav prev" onclick="cycleDetailImage(-1)">&#10094;</button>
+            <button class="detail-nav next" onclick="cycleDetailImage(1)">&#10095;</button>
+        </div>
+        <div class="detail-thumbs" id="detailThumbs"></div>
+      </div>
+      <div class="detail-info">
+        <p class="micro-label" id="detailTagline"></p>
+        <h2 id="detailTitle"></h2>
+        <p id="detailDescription" class="detail-description"></p>
+        <div class="detail-spec-chips">
+          <span id="detailSize"></span>
+          <span id="detailFinish"></span>
+          <span id="detailLeadTime"></span>
+        </div>
+        <div class="detail-price">
+          <span>Typical project window</span>
+          <strong id="detailPrice"></strong>
+        </div>
+        <ul id="detailFeatures" class="detail-feature-list"></ul>
+        <div class="detail-cta">
+          <button class="primary-cta" id="detailPrimaryCta">Request custom build</button>
+          <button class="ghost-cta" id="detailWhatsappCta">Preview on WhatsApp</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <!-- Enquiry Form Modal -->
 <div id="enquiryModal" class="modal">
