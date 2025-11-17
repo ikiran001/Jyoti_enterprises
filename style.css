@@ -58,12 +58,14 @@ header {
 
 .hero-background {
   position: relative;
-  padding: 40px 24px 60px;
-  min-height: 70vh;
+  padding: 40px 24px 80px;
+  min-height: 80vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  gap: 30px;
+  text-align: center;
 }
 
 .hero-background::after {
@@ -91,10 +93,16 @@ header {
   gap: 40px;
   position: relative;
   z-index: 1;
+  justify-items: center;
+  text-align: center;
 }
 
 .hero-copy {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .eyebrow-chip {
@@ -144,6 +152,7 @@ header {
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 18px;
+  justify-content: center;
 }
 
 .nav-link {
@@ -167,6 +176,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
 
 .primary-cta,
