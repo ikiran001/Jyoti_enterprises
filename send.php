@@ -1,123 +1,80 @@
 <?php
-declare(strict_types=1);
+// send.php
+// Clean JSON response, PHPMailer SMTP example.
+// IMPORTANT: edit SMTP_* placeholders and TO_ADDRESS before using.
 
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
+ini_set('display_errors', 0);
+error_reporting(0);
+ob_start();
 
-use PHPMailer\PHPMailer\Exception;
+header('Content-Type: application/json; charset=UTF-8');
+// For local testing only. Replace '*' with your domain in production.
+header('Access-Control-Allow-Origin: *');
+
+require __DIR__ . '/vendor/autoload.php'; // Composer autoload for PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/vendor/autoload.php';
-
-$config = require __DIR__ . '/config/app.php';
-require_once __DIR__ . '/includes/mailer.php';
-
-header('Content-Type: application/json');
-
-/**
- * Send a JSON response and terminate the script.
- */
-function respond(bool $success, string $message, array $payload = [], ?int $statusCode = null): void
-{
-    http_response_code($statusCode ?? ($success ? 200 : 400));
-    echo json_encode(array_merge(['success' => $success, 'message' => $message], $payload));
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    respond(false, 'Invalid request method.', [], 405);
-}
-
-$product = trim($_POST['product'] ?? 'General enquiry');
+// sanitize inputs
 $name    = trim($_POST['name'] ?? '');
 $email   = trim($_POST['email'] ?? '');
-$contact = trim($_POST['contact'] ?? ($_POST['phone'] ?? ''));
+$phone   = trim($_POST['phone'] ?? '');
+$product = trim($_POST['product'] ?? 'General Enquiry');
 $message = trim($_POST['message'] ?? '');
 
-if ($product === '') {
-    $product = 'General enquiry';
+if (!$name || !$email) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Name and email are required']);
+    exit;
 }
 
-if ($name === '' || $email === '' || $contact === '' || $message === '') {
-    respond(false, 'Please fill in your name, email, phone number and message.');
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(false, 'Please provide a valid email address.');
-}
-
-// Persist enquiry (best-effort)
+// configure PHPMailer
+$mail = new PHPMailer(true);
 try {
-    $conn = new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyotiffj_jyoti_Enterprises");
-    $conn->set_charset('utf8mb4');
-    $stmt = $conn->prepare("INSERT INTO enquiries (product, name, contact, email) VALUES (?, ?, ?, ?)");
-    if ($stmt) {
-        $stmt->bind_param("ssss", $product, $name, $contact, $email);
-        $stmt->execute();
-        $stmt->close();
-    }
-    $conn->close();
-} catch (Throwable $e) {
-    error_log('Enquiry DB error: ' . $e->getMessage());
-    // Continue even if DB write fails.
-}
+    $mail->SMTPDebug = 0; // MUST be 0 in production (no debug output)
+    $mail->isSMTP();
 
-$customerMailError = null;
-try {
-    sendMailWithFallback(
-        function (PHPMailer $mail) use ($config, $email, $name, $product, $message) {
-            $mail->addAddress($email, $name ?: 'Customer');
-            $mail->addReplyTo($config['admin_email'], $config['company_name']);
-            $mail->isHTML(true);
-            $mail->Subject = "Thank you for your enquiry at {$config['company_name']}!";
-            $mail->Body = "
-                Hi <strong>" . htmlspecialchars($name) . "</strong>,<br><br>
-                Thank you for your interest in <strong>" . htmlspecialchars($product) . "</strong>.<br><br>
-                We’ve received your enquiry and our team will reach out soon.<br><br>
-                <strong>Your Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "<br><br>
-                If urgent, please call or WhatsApp us at 📞 <strong>+91 {$config['admin_phone']}</strong><br><br>
-                — Team {$config['company_name']}
-            ";
-        },
-        $config['smtp']
-    );
+    // ====== EDIT THESE VALUES ======
+    $mail->Host       = 'smtp.gmail.com';        // e.g. smtp.gmail.com or mail.yourdomain.com
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'kiran.jadhav1993@gmail.com';   // full email for SMTP auth
+    $mail->Password   = 'chsqmasvvlrvgdus';   // password or app password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // or ENCRYPTION_SMTPS
+    $mail->Port       = 587;                    // 587 for STARTTLS or 465 for SSL
+    // ====== END EDIT ======
+
+    // message headers
+    $mail->setFrom('no-reply@yourdomain.com', 'Jyoti Enterprises'); // adjust domain
+    $mail->addAddress('kiran.jadhav1993@gmail.com'); // <-- where enquiries should go (change)
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = 'Website Enquiry: ' . ($product ?: 'General Enquiry');
+
+    $body = "New enquiry from website\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Phone: $phone\n";
+    $body .= "Product: $product\n\n";
+    $body .= "Message:\n$message\n";
+
+    $mail->Body = $body;
+    $mail->send();
+
+    // Clear any accidental output and return JSON success
+    ob_clean();
+    http_response_code(200);
+    echo json_encode(['success' => true, 'message' => 'Enquiry sent successfully!']);
+    exit;
 } catch (Exception $e) {
-    $customerMailError = $e->getMessage();
-    error_log('Customer acknowledgement mail failed: ' . $e->getMessage());
+    ob_clean();
+    http_response_code(500);
+    // Return PHPMailer error message for debugging (safe to show while developing)
+    echo json_encode(['success' => false, 'message' => 'Mailer Error: ' . ($mail->ErrorInfo ?: $e->getMessage())]);
+    exit;
 }
-
-try {
-    sendMailWithFallback(
-        function (PHPMailer $mail) use ($config, $product, $name, $contact, $email, $message) {
-            $mail->addAddress($config['admin_email']);
-            if (!empty($config['secondary_admin_email']) && $config['secondary_admin_email'] !== $config['admin_email']) {
-                $mail->addCC($config['secondary_admin_email']);
-            }
-            $mail->addReplyTo($email, $name);
-            $mail->isHTML(true);
-            $mail->Subject = "📩 New enquiry for " . htmlspecialchars($product);
-            $mail->Body = "
-                <h3>New Enquiry Details</h3>
-                <p><strong>Product:</strong> " . htmlspecialchars($product) . "</p>
-                <p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>
-                <p><strong>Contact:</strong> " . htmlspecialchars($contact) . "</p>
-                <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
-                <p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>
-            ";
-        },
-        $config['smtp']
-    );
-} catch (Exception $e) {
-    error_log('Admin notification mail failed: ' . $e->getMessage());
-    respond(
-        false,
-        'We could not notify Jyoti Enterprises right now. Please call or WhatsApp us at +91 ' . $config['admin_phone'] . '.'
-    );
-}
-
-$successMessage = 'Thank you! Your enquiry has been delivered to Jyoti Enterprises.';
-if ($customerMailError) {
-    $successMessage .= ' However, we could not send a confirmation email to you.';
-}
-
-respond(true, $successMessage);
