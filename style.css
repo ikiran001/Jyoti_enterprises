@@ -66,19 +66,6 @@ header {
   justify-content: center;
   gap: 30px;
   text-align: center;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.hero-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 20px rgba(46, 245, 255, 0.25));
-  pointer-events: none;
 }
 
 .hero-background::after {
@@ -95,7 +82,7 @@ header {
   inset: 0;
   background: linear-gradient(135deg, rgba(5, 12, 26, 0.95), rgba(5, 18, 40, 0.65));
   backdrop-filter: blur(18px);
-  z-index: 1;
+  z-index: 0;
 }
 
 .hero-grid {
@@ -105,14 +92,9 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   justify-items: center;
   text-align: center;
-}
-
-[data-parallax] {
-  will-change: transform;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-copy {
@@ -235,7 +217,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-style: preserve-3d;
 }
 
 .acrylic-stack {
@@ -468,16 +449,7 @@ header {
   box-shadow: 0 20px 45px rgba(3, 7, 18, 0.7);
   position: relative;
   overflow: hidden;
-  transition: transform 0.45s ease, border 0.35s ease, box-shadow 0.35s ease, opacity 0.45s ease;
-  transform: translate3d(0, 18px, 0) scale(0.98);
-  opacity: 0;
-  transform-style: preserve-3d;
-  perspective: 800px;
-}
-
-.product-card[data-visible="true"] {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform 0.35s ease, border 0.35s ease, box-shadow 0.35s ease;
 }
 
 .product-card::before {
@@ -509,13 +481,6 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.image-carousel img[data-loaded="true"] {
-  opacity: 1;
 }
 
 .arrow {
@@ -871,23 +836,6 @@ form button {
 
 .futuristic-glow {
   animation: pulseGlow 2.4s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-canvas {
-    display: none;
-  }
-  [data-parallax] {
-    transform: none !important;
-  }
 }
 
 @keyframes pulseGlow {
