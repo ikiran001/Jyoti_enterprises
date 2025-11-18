@@ -1,0 +1,47 @@
+<svg width="640" height="480" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c29"/>
+      <stop offset="50%" stop-color="#302b63"/>
+      <stop offset="100%" stop-color="#24243e"/>
+    </linearGradient>
+    <linearGradient id="podium-face" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6cf7ff"/>
+      <stop offset="100%" stop-color="#3783ff"/>
+    </linearGradient>
+    <linearGradient id="podium-side" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b7aff"/>
+      <stop offset="100%" stop-color="#01205e"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#7dfdff" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#45c9ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#032149" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <ellipse cx="320" cy="420" rx="210" ry="55" fill="#06103a" opacity="0.7"/>
+  <ellipse cx="320" cy="160" rx="220" ry="120" fill="url(#halo)" opacity="0.8"/>
+  <g filter="url(#glow)">
+    <rect x="220" y="130" width="200" height="200" rx="18" fill="url(#podium-face)"/>
+    <path d="M420 130 L460 160 L460 360 L420 330 Z" fill="url(#podium-side)"/>
+    <path d="M220 130 L180 160 L180 360 L220 330 Z" fill="#021842"/>
+    <rect x="260" y="150" width="120" height="20" rx="6" fill="#03163c" opacity="0.8"/>
+    <rect x="290" y="95" width="60" height="50" rx="8" fill="#0a1f52" stroke="#6cf7ff" stroke-width="2"/>
+    <circle cx="320" cy="85" r="25" fill="#00f5ff" opacity="0.25"/>
+    <circle cx="320" cy="85" r="15" fill="#021742" stroke="#67f4ff" stroke-width="2"/>
+  </g>
+  <g fill="#6cf7ff" opacity="0.6">
+    <circle cx="120" cy="80" r="3"/>
+    <circle cx="500" cy="60" r="4"/>
+    <circle cx="540" cy="200" r="2"/>
+    <circle cx="80" cy="220" r="2"/>
+  </g>
+</svg>

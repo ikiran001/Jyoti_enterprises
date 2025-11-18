@@ -1,0 +1,36 @@
+<svg width="640" height="480" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-brochure-3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#030b18"/>
+      <stop offset="100%" stop-color="#051f3c"/>
+    </linearGradient>
+    <linearGradient id="stand-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#48c6ef"/>
+      <stop offset="100%" stop-color="#6f86d6"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg-brochure-3)"/>
+  <ellipse cx="320" cy="430" rx="210" ry="45" fill="#01030a" opacity="0.65"/>
+  <g transform="translate(300,60)">
+    <path d="M20 0 L40 0 L60 40 L60 360 L20 360 L0 320 L0 40 Z" fill="#060f20" stroke="#48c6ef" stroke-width="3"/>
+    <rect x="10" y="30" width="40" height="320" rx="12" fill="url(#stand-3)"/>
+    <rect x="-40" y="360" width="120" height="30" rx="15" fill="#0b244a" stroke="#6f86d6" stroke-width="2"/>
+    <g fill="#0c294d" stroke="#48c6ef" stroke-width="2">
+      <rect x="-80" y="40" width="200" height="44" rx="12"/>
+      <rect x="-80" y="110" width="200" height="44" rx="12"/>
+      <rect x="-80" y="180" width="200" height="44" rx="12"/>
+      <rect x="-80" y="250" width="200" height="44" rx="12"/>
+    </g>
+    <g fill="#6f86d6" opacity="0.5">
+      <circle cx="-40" cy="62" r="10"/>
+      <circle cx="0" cy="62" r="10"/>
+      <circle cx="40" cy="62" r="10"/>
+    </g>
+  </g>
+  <g fill="#48c6ef" opacity="0.6">
+    <circle cx="120" cy="110" r="3"/>
+    <circle cx="520" cy="80" r="4"/>
+    <circle cx="540" cy="200" r="2"/>
+    <circle cx="90" cy="260" r="2"/>
+  </g>
+</svg>
