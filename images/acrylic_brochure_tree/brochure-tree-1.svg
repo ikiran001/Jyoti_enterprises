@@ -1,0 +1,36 @@
+<svg width="640" height="480" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-brochure" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061623"/>
+      <stop offset="100%" stop-color="#0a2f4d"/>
+    </linearGradient>
+    <linearGradient id="stand" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#74ffe0"/>
+      <stop offset="100%" stop-color="#3eb0ff"/>
+    </linearGradient>
+    <linearGradient id="pocket" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#122949"/>
+      <stop offset="100%" stop-color="#1c4b7c"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg-brochure)"/>
+  <circle cx="520" cy="120" r="4" fill="#74ffe0"/>
+  <circle cx="100" cy="80" r="3" fill="#3eb0ff"/>
+  <ellipse cx="320" cy="430" rx="190" ry="40" fill="#03101c" opacity="0.6"/>
+  <g transform="translate(280,80)">
+    <rect x="20" y="20" width="40" height="320" rx="12" fill="url(#stand)"/>
+    <rect x="-10" y="340" width="100" height="24" rx="10" fill="#02162a" stroke="#74ffe0" stroke-width="2"/>
+    <g fill="url(#pocket)" stroke="#74ffe0" stroke-width="1.5" opacity="0.9">
+      <rect x="-60" y="40" width="120" height="46" rx="10"/>
+      <rect x="-60" y="110" width="120" height="46" rx="10"/>
+      <rect x="-60" y="180" width="120" height="46" rx="10"/>
+      <rect x="-60" y="250" width="120" height="46" rx="10"/>
+    </g>
+    <g fill="#0ff" opacity="0.4">
+      <rect x="-40" y="50" width="20" height="26" rx="6"/>
+      <rect x="0" y="50" width="20" height="26" rx="6"/>
+      <rect x="-40" y="120" width="20" height="26" rx="6"/>
+      <rect x="0" y="120" width="20" height="26" rx="6"/>
+    </g>
+  </g>
+</svg>

@@ -538,9 +538,9 @@ window.productCatalog = {
       'Hidden cable routing + charging shelf'
     ],
     images: [
-      'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1522199786352-3cb95c2c643a?auto=format&fit=crop&w=900&q=80'
+      'images/acrylic_led_podium/glow-podium-1.svg',
+      'images/acrylic_led_podium/glow-podium-2.svg',
+      'images/acrylic_led_podium/glow-podium-3.svg'
     ],
     whatsapp: 'Hi Jyoti Enterprises, I need an Acrylic LED Podium for an upcoming launch.'
   },
@@ -560,9 +560,9 @@ window.productCatalog = {
       'Custom branding header available'
     ],
     images: [
-      'https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80'
+      'images/acrylic_brochure_tree/brochure-tree-1.svg',
+      'images/acrylic_brochure_tree/brochure-tree-2.svg',
+      'images/acrylic_brochure_tree/brochure-tree-3.svg'
     ],
     whatsapp: 'Hi Jyoti Enterprises, can you quote Acrylic Brochure Trees?'
   },
@@ -582,9 +582,9 @@ window.productCatalog = {
       'Weighs less than wooden plinths'
     ],
     images: [
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=900&q=80'
+      'images/acrylic_retail_cube/retail-cube-1.svg',
+      'images/acrylic_retail_cube/retail-cube-2.svg',
+      'images/acrylic_retail_cube/retail-cube-3.svg'
     ],
     whatsapp: 'Hi Jyoti Enterprises, I would like Acrylic Retail Cubes.'
   },
@@ -604,9 +604,9 @@ window.productCatalog = {
       'Custom monograms or logo engraving'
     ],
     images: [
-      'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1487412720507-e7ab37603c7e?auto=format&fit=crop&w=900&q=80'
+      'images/acrylic_luxe_tray/luxe-tray-1.svg',
+      'images/acrylic_luxe_tray/luxe-tray-2.svg',
+      'images/acrylic_luxe_tray/luxe-tray-3.svg'
     ],
     whatsapp: 'Hi Jyoti Enterprises, share pricing for Acrylic Luxe Vanity Trays.'
   }

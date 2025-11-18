@@ -1,0 +1,39 @@
+<svg width="640" height="480" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-tray" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1147"/>
+      <stop offset="100%" stop-color="#090b20"/>
+    </linearGradient>
+    <linearGradient id="tray-base" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffd194"/>
+      <stop offset="100%" stop-color="#d1913c"/>
+    </linearGradient>
+    <linearGradient id="tray-surface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffefba"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg-tray)"/>
+  <ellipse cx="320" cy="380" rx="200" ry="40" fill="#080714" opacity="0.7"/>
+  <g transform="translate(140,140)">
+    <path d="M0 120 L60 60 L340 60 L400 120 L400 200 L0 200 Z" fill="url(#tray-base)"/>
+    <path d="M40 40 L80 0 L360 0 L400 40 L400 80 L40 80 Z" fill="#2a174f" opacity="0.9" stroke="#f6d8a9" stroke-width="2"/>
+    <rect x="20" y="80" width="360" height="90" rx="18" fill="url(#tray-surface)" opacity="0.9"/>
+    <rect x="50" y="95" width="300" height="60" rx="16" fill="#fefefe" opacity="0.2"/>
+    <g fill="#f6d8a9">
+      <rect x="-10" y="90" width="30" height="70" rx="12"/>
+      <rect x="380" y="90" width="30" height="70" rx="12"/>
+    </g>
+    <g>
+      <circle cx="110" cy="60" r="28" fill="#fff" opacity="0.6"/>
+      <circle cx="110" cy="60" r="18" fill="#ffd194" opacity="0.8"/>
+      <rect x="190" y="30" width="80" height="60" rx="12" fill="#fff" opacity="0.3" stroke="#ffd194" stroke-width="2"/>
+      <rect x="300" y="42" width="50" height="50" rx="12" fill="#fefefe" opacity="0.2"/>
+    </g>
+  </g>
+  <g fill="#ffd194" opacity="0.8">
+    <circle cx="120" cy="100" r="3"/>
+    <circle cx="520" cy="90" r="4"/>
+    <circle cx="500" cy="260" r="2"/>
+  </g>
+</svg>

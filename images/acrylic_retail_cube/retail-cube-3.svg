@@ -1,0 +1,40 @@
+<svg width="640" height="480" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-cube-3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#02050c"/>
+      <stop offset="100%" stop-color="#0b1330"/>
+    </linearGradient>
+    <linearGradient id="cube-front-3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#43cea2"/>
+      <stop offset="100%" stop-color="#185a9d"/>
+    </linearGradient>
+    <linearGradient id="cube-side-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffafbd"/>
+      <stop offset="100%" stop-color="#ffc3a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg-cube-3)"/>
+  <ellipse cx="320" cy="430" rx="200" ry="40" fill="#01040a" opacity="0.7"/>
+  <g transform="translate(140,130)">
+    <g transform="translate(40,20)">
+      <path d="M0 60 L120 10 L220 50 L220 200 L0 270 Z" fill="#050d1e" stroke="#43cea2" stroke-width="2"/>
+      <path d="M0 60 L120 10 L120 150 L0 210 Z" fill="url(#cube-front-3)" opacity="0.85"/>
+      <path d="M120 10 L220 50 L220 200 L120 150 Z" fill="#0f2c54" opacity="0.9"/>
+    </g>
+    <g transform="translate(170,-20)">
+      <path d="M0 80 L90 40 L160 80 L160 210 L0 270 Z" fill="#07142f" stroke="#ffafbd" stroke-width="2"/>
+      <path d="M0 80 L90 40 L90 170 L0 210 Z" fill="#ffafbd" opacity="0.8"/>
+      <path d="M90 40 L160 80 L160 210 L90 170 Z" fill="#ffc3a0" opacity="0.8"/>
+    </g>
+    <g transform="translate(0,150)">
+      <path d="M0 40 L90 0 L160 30 L160 180 L0 240 Z" fill="#06132b" stroke="#43cea2" stroke-width="2"/>
+      <path d="M0 40 L90 0 L90 110 L0 150 Z" fill="#185a9d" opacity="0.8"/>
+      <path d="M90 0 L160 30 L160 180 L90 110 Z" fill="#0a294f" opacity="0.9"/>
+    </g>
+  </g>
+  <g fill="#43cea2" opacity="0.6">
+    <circle cx="520" cy="90" r="3"/>
+    <circle cx="150" cy="70" r="3"/>
+    <circle cx="520" cy="300" r="2"/>
+  </g>
+</svg>
