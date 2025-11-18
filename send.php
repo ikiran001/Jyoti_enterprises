@@ -64,45 +64,49 @@ try {
 
 $customerMailError = null;
 try {
-    $mail = new PHPMailer(true);
-    configureMailer($mail, $config['smtp']);
-    $mail->addAddress($email, $name ?: 'Customer');
-    $mail->addReplyTo($config['admin_email'], $config['company_name']);
-    $mail->isHTML(true);
-    $mail->Subject = "Thank you for your enquiry at {$config['company_name']}!";
-    $mail->Body = "
-        Hi <strong>" . htmlspecialchars($name) . "</strong>,<br><br>
-        Thank you for your interest in <strong>" . htmlspecialchars($product) . "</strong>.<br><br>
-        We’ve received your enquiry and our team will reach out soon.<br><br>
-        <strong>Your Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "<br><br>
-        If urgent, please call or WhatsApp us at 📞 <strong>+91 {$config['admin_phone']}</strong><br><br>
-        — Team {$config['company_name']}
-    ";
-    $mail->send();
+    sendMailWithFallback(
+        function (PHPMailer $mail) use ($config, $email, $name, $product, $message) {
+            $mail->addAddress($email, $name ?: 'Customer');
+            $mail->addReplyTo($config['admin_email'], $config['company_name']);
+            $mail->isHTML(true);
+            $mail->Subject = "Thank you for your enquiry at {$config['company_name']}!";
+            $mail->Body = "
+                Hi <strong>" . htmlspecialchars($name) . "</strong>,<br><br>
+                Thank you for your interest in <strong>" . htmlspecialchars($product) . "</strong>.<br><br>
+                We’ve received your enquiry and our team will reach out soon.<br><br>
+                <strong>Your Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "<br><br>
+                If urgent, please call or WhatsApp us at 📞 <strong>+91 {$config['admin_phone']}</strong><br><br>
+                — Team {$config['company_name']}
+            ";
+        },
+        $config['smtp']
+    );
 } catch (Exception $e) {
     $customerMailError = $e->getMessage();
     error_log('Customer acknowledgement mail failed: ' . $e->getMessage());
 }
 
 try {
-    $adminMail = new PHPMailer(true);
-    configureMailer($adminMail, $config['smtp']);
-    $adminMail->addAddress($config['admin_email']);
-    if (!empty($config['secondary_admin_email']) && $config['secondary_admin_email'] !== $config['admin_email']) {
-        $adminMail->addCC($config['secondary_admin_email']);
-    }
-    $adminMail->addReplyTo($email, $name);
-    $adminMail->isHTML(true);
-    $adminMail->Subject = "📩 New enquiry for " . htmlspecialchars($product);
-    $adminMail->Body = "
-        <h3>New Enquiry Details</h3>
-        <p><strong>Product:</strong> " . htmlspecialchars($product) . "</p>
-        <p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>
-        <p><strong>Contact:</strong> " . htmlspecialchars($contact) . "</p>
-        <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
-        <p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>
-    ";
-    $adminMail->send();
+    sendMailWithFallback(
+        function (PHPMailer $mail) use ($config, $product, $name, $contact, $email, $message) {
+            $mail->addAddress($config['admin_email']);
+            if (!empty($config['secondary_admin_email']) && $config['secondary_admin_email'] !== $config['admin_email']) {
+                $mail->addCC($config['secondary_admin_email']);
+            }
+            $mail->addReplyTo($email, $name);
+            $mail->isHTML(true);
+            $mail->Subject = "📩 New enquiry for " . htmlspecialchars($product);
+            $mail->Body = "
+                <h3>New Enquiry Details</h3>
+                <p><strong>Product:</strong> " . htmlspecialchars($product) . "</p>
+                <p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>
+                <p><strong>Contact:</strong> " . htmlspecialchars($contact) . "</p>
+                <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
+                <p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>
+            ";
+        },
+        $config['smtp']
+    );
 } catch (Exception $e) {
     error_log('Admin notification mail failed: ' . $e->getMessage());
     respond(
