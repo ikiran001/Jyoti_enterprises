@@ -1,3 +1,7 @@
+<?php
+$status = $_GET['status'] ?? '';
+$flashMessage = $_GET['message'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +84,29 @@
       color: var(--muted);
     }
 
-    .contact-grid {
+      .contact-flash {
+        max-width: 600px;
+        margin: 0 auto 28px;
+        padding: 14px 18px;
+        border-radius: 18px;
+        text-align: center;
+        font-weight: 600;
+        border: 1px solid transparent;
+      }
+
+      .contact-flash.success {
+        border-color: rgba(75, 255, 225, 0.6);
+        background: rgba(75, 255, 225, 0.12);
+        color: var(--neon-cyan);
+      }
+
+      .contact-flash.error {
+        border-color: rgba(255, 120, 120, 0.6);
+        background: rgba(255, 120, 120, 0.12);
+        color: #ffb7b7;
+      }
+
+      .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 28px;
@@ -313,6 +339,17 @@
       </p>
     </div>
 
+      <?php if (!empty($status)): ?>
+        <div class="contact-flash <?php echo $status === 'success' ? 'success' : 'error'; ?>">
+          <?php
+            $defaultMessage = $status === 'success'
+              ? 'Thank you! We received your message.'
+              : 'Something went wrong. Please try again.';
+            echo htmlspecialchars($flashMessage ?: $defaultMessage);
+          ?>
+        </div>
+      <?php endif; ?>
+
     <div class="contact-grid">
       <section class="contact-card">
         <form action="contact_send.php" method="POST">
@@ -322,8 +359,8 @@
           <label for="email">Email</label>
           <input id="email" name="email" type="email" placeholder="you@email.com" required />
 
-          <label for="mobile">Mobile</label>
-          <input id="mobile" name="mobile" type="text" placeholder="+91 98207 30645" required />
+            <label for="mobile">Mobile</label>
+            <input id="mobile" name="mobile" type="text" placeholder="+91 70321 74014" required />
 
           <label for="message">Project Notes</label>
           <textarea id="message" name="message" placeholder="Need 25 acrylic brochure stands with halo lighting..." required></textarea>
@@ -335,10 +372,10 @@
       <section class="contact-card">
         <div class="info-stack">
           <div class="info-pill">
-            <span>📞</span>
+              <span>📞</span>
             <div>
               <small style="display:block; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-size:0.75rem;">Hotline</small>
-              +91 98207 30645
+                +91 70321 74014
             </div>
           </div>
           <div class="info-pill">

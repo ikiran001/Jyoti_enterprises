@@ -500,15 +500,21 @@ function submitEnquiry(event) {
 
   // Show loading message
   const loader = document.getElementById("enquiryLoader");
-  loader.style.display = "block";
+  if (loader) {
+    loader.style.display = "block";
+  }
 
   fetch("send.php", {
     method: "POST",
     body: formData
   })
-    .then(res => res.text())
-    .then(data => {
-      alert("Enquiry sent successfully!");
+    .then(async res => {
+      const payload = await res.json().catch(() => null);
+      if (!res.ok || !payload || payload.success !== true) {
+        const messageText = payload && payload.message ? payload.message : "Unable to send enquiry. Please try again.";
+        throw new Error(messageText);
+      }
+      alert(payload.message || "Enquiry sent successfully!");
       document.getElementById("enquiryName").value = "";
       document.getElementById("enquiryEmail").value = "";
       document.getElementById("enquiryPhone").value = "";
@@ -518,12 +524,14 @@ function submitEnquiry(event) {
       closeModal();
     })
     .catch(err => {
-      alert("Something went wrong. Please try again.");
+      alert(err.message || "Something went wrong. Please try again.");
       console.error(err);
     })
     .finally(() => {
       // ✅ Always hide the loader, even if there's an error
-      loader.style.display = "none";
+      if (loader) {
+        loader.style.display = "none";
+      }
     });
 }
 
