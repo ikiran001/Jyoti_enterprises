@@ -1,28 +1,10 @@
 <?php
-$db_error = null;
-$testimonials = [];
-
-if (!class_exists('mysqli')) {
+$conn = @new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyotiffj_jyoti_Enterprises");
+if ($conn->connect_error) {
   $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
+  $result = null;
 } else {
-  $conn = @new mysqli("localhost", "jyotiffj_KiranJ", "K@9833514014j", "jyotiffj_jyoti_Enterprises");
-  if ($conn->connect_error) {
-    $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
-  } else {
-    $result = $conn->query("SELECT name, message, rating FROM testimonials WHERE approved = 1 ORDER BY created_at DESC");
-    if ($result === false) {
-      $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
-    } else {
-      while ($row = $result->fetch_assoc()) {
-        $testimonials[] = $row;
-      }
-      $result->free();
-    }
-  }
-}
-
-if (isset($conn) && is_object($conn) && method_exists($conn, 'close')) {
-  $conn->close();
+  $result = $conn->query("SELECT name, message, rating FROM testimonials WHERE approved = 1 ORDER BY created_at DESC");
 }
 ?>
 <!DOCTYPE html>
@@ -442,14 +424,14 @@ if (isset($conn) && is_object($conn) && method_exists($conn, 'close')) {
           <div class="client">Meenal K., Retail Experience Lead</div>
           <div class="rating">⭐⭐⭐⭐⭐</div>
         </article>
-        <?php if (!empty($testimonials)): ?>
-          <?php foreach ($testimonials as $row): ?>
+        <?php if ($result && $result->num_rows > 0): ?>
+          <?php while ($row = $result->fetch_assoc()): ?>
             <article class="testimonial-card">
               <p>“<?= htmlspecialchars($row['message']) ?>”</p>
               <div class="client">– <?= htmlspecialchars($row['name']) ?></div>
               <div class="rating"><?= str_repeat('⭐', (int) $row['rating']) ?></div>
             </article>
-          <?php endforeach; ?>
+          <?php endwhile; ?>
         <?php else: ?>
           <article class="testimonial-card">
             <p>“Be the first to drop a review from the future. We’re excited to hear about your install.”</p>
