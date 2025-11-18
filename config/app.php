@@ -3,8 +3,8 @@
 return [
     'company_name' => 'Jyoti Enterprises',
     'display_contact_name' => 'Prakash Jadhav',
-    'admin_email' => 'ijkiranp@gmail.com',
-    'secondary_admin_email' => 'kiran.jadhav1993@gmail.com',
+    'admin_email' => 'kiran.jadhav1993@gmail.com',
+    'secondary_admin_email' => 'ijkiranp@gmail.com',
     'admin_phone' => '7032174014',
     'office_location' => 'Subhashnagar, Ghatkopar West, Mumbai 400084',
     'smtp' => [
