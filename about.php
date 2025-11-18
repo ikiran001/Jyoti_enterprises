@@ -7,33 +7,38 @@ if (!class_exists('mysqli')) {
 } else {
   mysqli_report(MYSQLI_REPORT_OFF);
 
-  $db_host = getenv('DB_HOST') ?: 'localhost';
-  $db_user = getenv('DB_USER') ?: 'jyotiffj_KiranJ';
-  $db_pass = getenv('DB_PASS') ?: 'K@9833514014j';
-  $db_name = getenv('DB_NAME') ?: 'jyotiffj_jyoti_Enterprises';
+    $db_host = getenv('DB_HOST') ?: 'localhost';
+    $db_user = getenv('DB_USER') ?: 'jyotiffj_KiranJ';
+    $db_pass = getenv('DB_PASS') ?: 'K@9833514014j';
+    $db_name = getenv('DB_NAME') ?: 'jyotiffj_jyoti_Enterprises';
 
-  $conn = @new mysqli($db_host, $db_user, $db_pass, $db_name);
+    $conn = @new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-  if ($conn->connect_errno) {
-    $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
-  } else {
-    $sql = "SELECT name, message, rating FROM testimonials WHERE approved = 1 ORDER BY created_at DESC";
-    if ($stmt = $conn->prepare($sql)) {
-      if ($stmt->execute()) {
-        if ($result = $stmt->get_result()) {
-          while ($row = $result->fetch_assoc()) {
-            $testimonials[] = $row;
+    if ($conn->connect_errno) {
+      $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
+    } else {
+      $sql = "SELECT name, message, rating FROM testimonials WHERE approved = 1 ORDER BY created_at DESC";
+      if ($stmt = $conn->prepare($sql)) {
+        if ($stmt->execute()) {
+          if ($stmt->bind_result($name, $message, $rating)) {
+            while ($stmt->fetch()) {
+              $testimonials[] = [
+                'name' => $name,
+                'message' => $message,
+                'rating' => $rating,
+              ];
+            }
+          } else {
+            $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
           }
-          $result->free();
+        } else {
+          $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
         }
+        $stmt->close();
       } else {
         $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
       }
-      $stmt->close();
-    } else {
-      $db_error = 'Testimonials are temporarily unavailable. Please try again soon.';
     }
-  }
 
   if (isset($conn) && $conn instanceof mysqli) {
     $conn->close();
